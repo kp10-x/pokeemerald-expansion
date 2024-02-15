@@ -52,7 +52,7 @@ LittlerootTown_OnTransition:
 	call_if_eq VAR_LITTLEROOT_RIVAL_STATE, 3, LittlerootTown_EventScript_SetRivalLeftForRoute103
 	call_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 1, LittlerootTown_EventScript_HideMapNamePopup
 	call_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 2, LittlerootTown_EventScript_LeftLabAfterDexUpgrade
-	call_if_unset FLAG_UNUSED_0x023, LittlerootTown_EventScript_SetupRivalBattle
+	call_if_unset RIVAL_STARTER_BATTLE, LittlerootTown_EventScript_SetupRivalBattle
 	end
 
 LittlerootTown_EventScript_LeftLabAfterDexUpgrade::
@@ -1028,23 +1028,39 @@ script LittlerootTown_EventScript_MemeSign {
 }
 
 script LittlerootTown_EventScript_SetupRivalBattle{
-	if (!(flag(FLAG_UNUSED_0x020) || flag(FLAG_UNUSED_0x021) || flag(FLAG_UNUSED_0x022))){
-		setflag(FLAG_UNUSED_0x023)
+	if (!(flag(STARTER_BALL_ONE) || flag(STARTER_BALL_TWO) || flag(STARTER_BALL_THREE))){
+		setflag(RIVAL_STARTER_BATTLE)
 	}
 	else{
-		clearflag(FLAG_UNUSED_0x023)
+		clearflag(RIVAL_STARTER_BATTLE)
 	}
 }
  
 script LittlerootTown_EventScript_MayRivalBattle{
  
-	trainerbattle_single(TRAINER_MAY_ROUTE_103_TORCHIC, May_Intro, May_Outro)
-	msgbox(PostBattle_May, MSGBOX_AUTOCLOSE) 
-	waitmessage
+	trainerbattle_single(TRAINER_MAY_ROUTE_103_TORCHIC, May_Intro, May_Outro, RivalBattleOver)
+	// msgbox(PostBattle_May, MSGBOX_AUTOCLOSE) 
+	// waitmessage
     end
  
 }
+
+script RivalBattleOver{
+	lockall
+	applymovement(9, MayLeave)
+	waitmovement(0)
+	removeobject(9)
+	setflag(RIVAL_STARTER_BATTLE)
+	releaseall
+}
  
+movement MayLeave {
+	face_down
+    walk_down 
+    walk_left * 7
+ 
+} 
+
 text May_Intro{
     "You'll never win"
 }

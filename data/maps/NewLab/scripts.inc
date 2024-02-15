@@ -6,7 +6,7 @@ NewLab_MapScripts::
 
 NewLab_EventScript_BallDefault::
 # 6 "data/maps/NewLab/scripts.pory"
-	setvar VAR_UNUSED_0x40F7, 0
+	setvar VAR_SELECT_STARTER, 0
 	return
 
 
@@ -16,7 +16,7 @@ NewLab_EventScript_Birch::
 # 11 "data/maps/NewLab/scripts.pory"
 	faceplayer
 # 12 "data/maps/NewLab/scripts.pory"
-	goto_if_unset FLAG_UNUSED_0x020, NewLab_EventScript_Birch_4
+	goto_if_unset STARTER_BALL_ONE, NewLab_EventScript_Birch_4
 NewLab_EventScript_Birch_3:
 # 28 "data/maps/NewLab/scripts.pory"
 	msgbox NewLab_EventScript_Birch_Text_2
@@ -39,20 +39,20 @@ NewLab_EventScript_Birch_2:
 
 NewLab_EventScript_Birch_4:
 # 12 "data/maps/NewLab/scripts.pory"
-	goto_if_unset FLAG_UNUSED_0x021, NewLab_EventScript_Birch_6
+	goto_if_unset STARTER_BALL_TWO, NewLab_EventScript_Birch_6
 	goto NewLab_EventScript_Birch_3
 
 NewLab_EventScript_Birch_6:
 # 12 "data/maps/NewLab/scripts.pory"
-	goto_if_unset FLAG_UNUSED_0x022, NewLab_EventScript_Birch_2
+	goto_if_unset STARTER_BALL_THREE, NewLab_EventScript_Birch_2
 	goto NewLab_EventScript_Birch_3
 
 NewLab_EventScript_Birch_9:
 # 15 "data/maps/NewLab/scripts.pory"
-	compare VAR_UNUSED_0x40F7, 2
+	compare VAR_SELECT_STARTER, 2
 	goto_if_ne NewLab_EventScript_Birch_13
 # 19 "data/maps/NewLab/scripts.pory"
-	setvar VAR_UNUSED_0x40F7, 0
+	setvar VAR_SELECT_STARTER, 0
 NewLab_EventScript_Birch_12:
 # 21 "data/maps/NewLab/scripts.pory"
 	msgbox NewLab_EventScript_Birch_Text_1
@@ -60,7 +60,7 @@ NewLab_EventScript_Birch_12:
 
 NewLab_EventScript_Birch_13:
 # 16 "data/maps/NewLab/scripts.pory"
-	addvar VAR_UNUSED_0x40F7, 1
+	addvar VAR_SELECT_STARTER, 1
 	goto NewLab_EventScript_Birch_12
 
 
@@ -68,7 +68,7 @@ NewLab_EventScript_PokeballOne::
 # 36 "data/maps/NewLab/scripts.pory"
 	lockall
 # 37 "data/maps/NewLab/scripts.pory"
-	goto_if_unset FLAG_UNUSED_0x020, NewLab_EventScript_PokeballOne_4
+	goto_if_unset STARTER_BALL_ONE, NewLab_EventScript_PokeballOne_4
 NewLab_EventScript_PokeballOne_3:
 # 49 "data/maps/NewLab/scripts.pory"
 	msgbox NewLab_EventScript_PokeballOne_Text_0
@@ -81,24 +81,24 @@ NewLab_EventScript_PokeballOne_1:
 
 NewLab_EventScript_PokeballOne_2:
 # 38 "data/maps/NewLab/scripts.pory"
-	compare VAR_UNUSED_0x40F7, 0
+	compare VAR_SELECT_STARTER, 0
 	goto_if_eq NewLab_EventScript_PokeballOne_9
 # 41 "data/maps/NewLab/scripts.pory"
-	compare VAR_UNUSED_0x40F7, 1
+	compare VAR_SELECT_STARTER, 1
 	goto_if_eq NewLab_EventScript_PokeballOne_10
 # 44 "data/maps/NewLab/scripts.pory"
-	compare VAR_UNUSED_0x40F7, 2
+	compare VAR_SELECT_STARTER, 2
 	goto_if_eq NewLab_EventScript_PokeballOne_11
 	goto NewLab_EventScript_PokeballOne_1
 
 NewLab_EventScript_PokeballOne_4:
 # 37 "data/maps/NewLab/scripts.pory"
-	goto_if_unset FLAG_UNUSED_0x021, NewLab_EventScript_PokeballOne_6
+	goto_if_unset STARTER_BALL_TWO, NewLab_EventScript_PokeballOne_6
 	goto NewLab_EventScript_PokeballOne_3
 
 NewLab_EventScript_PokeballOne_6:
 # 37 "data/maps/NewLab/scripts.pory"
-	goto_if_unset FLAG_UNUSED_0x022, NewLab_EventScript_PokeballOne_2
+	goto_if_unset STARTER_BALL_THREE, NewLab_EventScript_PokeballOne_2
 	goto NewLab_EventScript_PokeballOne_3
 
 NewLab_EventScript_PokeballOne_9:
@@ -121,7 +121,7 @@ NewLab_EventScript_PokeballTwo::
 # 57 "data/maps/NewLab/scripts.pory"
 	lockall
 # 58 "data/maps/NewLab/scripts.pory"
-	goto_if_unset FLAG_UNUSED_0x020, NewLab_EventScript_PokeballTwo_4
+	goto_if_unset STARTER_BALL_ONE, NewLab_EventScript_PokeballTwo_4
 NewLab_EventScript_PokeballTwo_3:
 # 70 "data/maps/NewLab/scripts.pory"
 	msgbox NewLab_EventScript_PokeballOne_Text_0
@@ -134,24 +134,24 @@ NewLab_EventScript_PokeballTwo_1:
 
 NewLab_EventScript_PokeballTwo_2:
 # 59 "data/maps/NewLab/scripts.pory"
-	compare VAR_UNUSED_0x40F7, 0
+	compare VAR_SELECT_STARTER, 0
 	goto_if_eq NewLab_EventScript_PokeballTwo_9
 # 62 "data/maps/NewLab/scripts.pory"
-	compare VAR_UNUSED_0x40F7, 1
+	compare VAR_SELECT_STARTER, 1
 	goto_if_eq NewLab_EventScript_PokeballTwo_10
 # 65 "data/maps/NewLab/scripts.pory"
-	compare VAR_UNUSED_0x40F7, 2
+	compare VAR_SELECT_STARTER, 2
 	goto_if_eq NewLab_EventScript_PokeballTwo_11
 	goto NewLab_EventScript_PokeballTwo_1
 
 NewLab_EventScript_PokeballTwo_4:
 # 58 "data/maps/NewLab/scripts.pory"
-	goto_if_unset FLAG_UNUSED_0x021, NewLab_EventScript_PokeballTwo_6
+	goto_if_unset STARTER_BALL_TWO, NewLab_EventScript_PokeballTwo_6
 	goto NewLab_EventScript_PokeballTwo_3
 
 NewLab_EventScript_PokeballTwo_6:
 # 58 "data/maps/NewLab/scripts.pory"
-	goto_if_unset FLAG_UNUSED_0x022, NewLab_EventScript_PokeballTwo_2
+	goto_if_unset STARTER_BALL_THREE, NewLab_EventScript_PokeballTwo_2
 	goto NewLab_EventScript_PokeballTwo_3
 
 NewLab_EventScript_PokeballTwo_9:
@@ -174,7 +174,7 @@ NewLab_EventScript_PokeballThree::
 # 78 "data/maps/NewLab/scripts.pory"
 	lockall
 # 79 "data/maps/NewLab/scripts.pory"
-	goto_if_unset FLAG_UNUSED_0x020, NewLab_EventScript_PokeballThree_4
+	goto_if_unset STARTER_BALL_ONE, NewLab_EventScript_PokeballThree_4
 NewLab_EventScript_PokeballThree_3:
 # 91 "data/maps/NewLab/scripts.pory"
 	msgbox NewLab_EventScript_PokeballOne_Text_0
@@ -187,24 +187,24 @@ NewLab_EventScript_PokeballThree_1:
 
 NewLab_EventScript_PokeballThree_2:
 # 80 "data/maps/NewLab/scripts.pory"
-	compare VAR_UNUSED_0x40F7, 0
+	compare VAR_SELECT_STARTER, 0
 	goto_if_eq NewLab_EventScript_PokeballThree_9
 # 83 "data/maps/NewLab/scripts.pory"
-	compare VAR_UNUSED_0x40F7, 1
+	compare VAR_SELECT_STARTER, 1
 	goto_if_eq NewLab_EventScript_PokeballThree_10
 # 86 "data/maps/NewLab/scripts.pory"
-	compare VAR_UNUSED_0x40F7, 2
+	compare VAR_SELECT_STARTER, 2
 	goto_if_eq NewLab_EventScript_PokeballThree_11
 	goto NewLab_EventScript_PokeballThree_1
 
 NewLab_EventScript_PokeballThree_4:
 # 79 "data/maps/NewLab/scripts.pory"
-	goto_if_unset FLAG_UNUSED_0x021, NewLab_EventScript_PokeballThree_6
+	goto_if_unset STARTER_BALL_TWO, NewLab_EventScript_PokeballThree_6
 	goto NewLab_EventScript_PokeballThree_3
 
 NewLab_EventScript_PokeballThree_6:
 # 79 "data/maps/NewLab/scripts.pory"
-	goto_if_unset FLAG_UNUSED_0x022, NewLab_EventScript_PokeballThree_2
+	goto_if_unset STARTER_BALL_THREE, NewLab_EventScript_PokeballThree_2
 	goto NewLab_EventScript_PokeballThree_3
 
 NewLab_EventScript_PokeballThree_9:
@@ -260,7 +260,7 @@ NewLab_EventScript_Mudkip_4:
 # 107 "data/maps/NewLab/scripts.pory"
 	removeobject 1
 # 108 "data/maps/NewLab/scripts.pory"
-	setflag FLAG_UNUSED_0x020
+	setflag STARTER_BALL_ONE
 # 109 "data/maps/NewLab/scripts.pory"
 	setflag FLAG_SYS_POKEMON_GET
 # 110 "data/maps/NewLab/scripts.pory"
@@ -275,7 +275,7 @@ NewLab_EventScript_Mudkip_5:
 # 115 "data/maps/NewLab/scripts.pory"
 	removeobject 1
 # 116 "data/maps/NewLab/scripts.pory"
-	setflag FLAG_UNUSED_0x020
+	setflag STARTER_BALL_ONE
 # 117 "data/maps/NewLab/scripts.pory"
 	setflag FLAG_SYS_POKEMON_GET
 # 118 "data/maps/NewLab/scripts.pory"
@@ -320,7 +320,7 @@ NewLab_EventScript_Totodile_4:
 # 140 "data/maps/NewLab/scripts.pory"
 	removeobject 1
 # 141 "data/maps/NewLab/scripts.pory"
-	setflag FLAG_UNUSED_0x020
+	setflag STARTER_BALL_ONE
 # 142 "data/maps/NewLab/scripts.pory"
 	setflag FLAG_SYS_POKEMON_GET
 # 143 "data/maps/NewLab/scripts.pory"
@@ -335,7 +335,7 @@ NewLab_EventScript_Totodile_5:
 # 148 "data/maps/NewLab/scripts.pory"
 	removeobject 1
 # 149 "data/maps/NewLab/scripts.pory"
-	setflag FLAG_UNUSED_0x020
+	setflag STARTER_BALL_ONE
 # 150 "data/maps/NewLab/scripts.pory"
 	setflag FLAG_SYS_POKEMON_GET
 # 151 "data/maps/NewLab/scripts.pory"
@@ -380,7 +380,7 @@ NewLab_EventScript_Squirtle_4:
 # 173 "data/maps/NewLab/scripts.pory"
 	removeobject 1
 # 174 "data/maps/NewLab/scripts.pory"
-	setflag FLAG_UNUSED_0x020
+	setflag STARTER_BALL_ONE
 # 175 "data/maps/NewLab/scripts.pory"
 	setflag FLAG_SYS_POKEMON_GET
 # 176 "data/maps/NewLab/scripts.pory"
@@ -395,7 +395,7 @@ NewLab_EventScript_Squirtle_5:
 # 181 "data/maps/NewLab/scripts.pory"
 	removeobject 1
 # 182 "data/maps/NewLab/scripts.pory"
-	setflag FLAG_UNUSED_0x020
+	setflag STARTER_BALL_ONE
 # 183 "data/maps/NewLab/scripts.pory"
 	setflag FLAG_SYS_POKEMON_GET
 # 184 "data/maps/NewLab/scripts.pory"
@@ -440,7 +440,7 @@ NewLab_EventScript_Treecko_4:
 # 206 "data/maps/NewLab/scripts.pory"
 	removeobject 2
 # 207 "data/maps/NewLab/scripts.pory"
-	setflag FLAG_UNUSED_0x021
+	setflag STARTER_BALL_TWO
 # 208 "data/maps/NewLab/scripts.pory"
 	setflag FLAG_SYS_POKEMON_GET
 # 209 "data/maps/NewLab/scripts.pory"
@@ -455,7 +455,7 @@ NewLab_EventScript_Treecko_5:
 # 214 "data/maps/NewLab/scripts.pory"
 	removeobject 2
 # 215 "data/maps/NewLab/scripts.pory"
-	setflag FLAG_UNUSED_0x021
+	setflag STARTER_BALL_TWO
 # 216 "data/maps/NewLab/scripts.pory"
 	setflag FLAG_SYS_POKEMON_GET
 # 217 "data/maps/NewLab/scripts.pory"
@@ -500,7 +500,7 @@ NewLab_EventScript_Chikorita_4:
 # 239 "data/maps/NewLab/scripts.pory"
 	removeobject 2
 # 240 "data/maps/NewLab/scripts.pory"
-	setflag FLAG_UNUSED_0x021
+	setflag STARTER_BALL_TWO
 # 241 "data/maps/NewLab/scripts.pory"
 	setflag FLAG_SYS_POKEMON_GET
 # 242 "data/maps/NewLab/scripts.pory"
@@ -515,7 +515,7 @@ NewLab_EventScript_Chikorita_5:
 # 247 "data/maps/NewLab/scripts.pory"
 	removeobject 2
 # 248 "data/maps/NewLab/scripts.pory"
-	setflag FLAG_UNUSED_0x021
+	setflag STARTER_BALL_TWO
 # 249 "data/maps/NewLab/scripts.pory"
 	setflag FLAG_SYS_POKEMON_GET
 # 250 "data/maps/NewLab/scripts.pory"
@@ -560,7 +560,7 @@ NewLab_EventScript_Bulbasaur_4:
 # 272 "data/maps/NewLab/scripts.pory"
 	removeobject 2
 # 273 "data/maps/NewLab/scripts.pory"
-	setflag FLAG_UNUSED_0x021
+	setflag STARTER_BALL_TWO
 # 274 "data/maps/NewLab/scripts.pory"
 	setflag FLAG_SYS_POKEMON_GET
 # 275 "data/maps/NewLab/scripts.pory"
@@ -575,7 +575,7 @@ NewLab_EventScript_Bulbasaur_5:
 # 280 "data/maps/NewLab/scripts.pory"
 	removeobject 2
 # 281 "data/maps/NewLab/scripts.pory"
-	setflag FLAG_UNUSED_0x021
+	setflag STARTER_BALL_TWO
 # 282 "data/maps/NewLab/scripts.pory"
 	setflag FLAG_SYS_POKEMON_GET
 # 283 "data/maps/NewLab/scripts.pory"
@@ -620,7 +620,7 @@ NewLab_EventScript_Torchic_4:
 # 305 "data/maps/NewLab/scripts.pory"
 	removeobject 3
 # 306 "data/maps/NewLab/scripts.pory"
-	setflag FLAG_UNUSED_0x022
+	setflag STARTER_BALL_THREE
 # 307 "data/maps/NewLab/scripts.pory"
 	setflag FLAG_SYS_POKEMON_GET
 # 308 "data/maps/NewLab/scripts.pory"
@@ -635,7 +635,7 @@ NewLab_EventScript_Torchic_5:
 # 313 "data/maps/NewLab/scripts.pory"
 	removeobject 3
 # 314 "data/maps/NewLab/scripts.pory"
-	setflag FLAG_UNUSED_0x022
+	setflag STARTER_BALL_THREE
 # 315 "data/maps/NewLab/scripts.pory"
 	setflag FLAG_SYS_POKEMON_GET
 # 316 "data/maps/NewLab/scripts.pory"
@@ -680,7 +680,7 @@ NewLab_EventScript_Cyndaquil_4:
 # 338 "data/maps/NewLab/scripts.pory"
 	removeobject 3
 # 339 "data/maps/NewLab/scripts.pory"
-	setflag FLAG_UNUSED_0x022
+	setflag STARTER_BALL_THREE
 # 340 "data/maps/NewLab/scripts.pory"
 	setflag FLAG_SYS_POKEMON_GET
 # 341 "data/maps/NewLab/scripts.pory"
@@ -695,7 +695,7 @@ NewLab_EventScript_Cyndaquil_5:
 # 346 "data/maps/NewLab/scripts.pory"
 	removeobject 3
 # 347 "data/maps/NewLab/scripts.pory"
-	setflag FLAG_UNUSED_0x022
+	setflag STARTER_BALL_THREE
 # 348 "data/maps/NewLab/scripts.pory"
 	setflag FLAG_SYS_POKEMON_GET
 # 349 "data/maps/NewLab/scripts.pory"
@@ -740,7 +740,7 @@ NewLab_EventScript_Charmander_4:
 # 371 "data/maps/NewLab/scripts.pory"
 	removeobject 3
 # 372 "data/maps/NewLab/scripts.pory"
-	setflag FLAG_UNUSED_0x022
+	setflag STARTER_BALL_THREE
 # 373 "data/maps/NewLab/scripts.pory"
 	setflag FLAG_SYS_POKEMON_GET
 # 374 "data/maps/NewLab/scripts.pory"
@@ -755,7 +755,7 @@ NewLab_EventScript_Charmander_5:
 # 379 "data/maps/NewLab/scripts.pory"
 	removeobject 3
 # 380 "data/maps/NewLab/scripts.pory"
-	setflag FLAG_UNUSED_0x022
+	setflag STARTER_BALL_THREE
 # 381 "data/maps/NewLab/scripts.pory"
 	setflag FLAG_SYS_POKEMON_GET
 # 382 "data/maps/NewLab/scripts.pory"

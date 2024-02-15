@@ -107,7 +107,7 @@ LittlerootTown_OnTransition:
 # 54 "data/maps/LittlerootTown/scripts.pory"
 	call_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 2, LittlerootTown_EventScript_LeftLabAfterDexUpgrade
 # 55 "data/maps/LittlerootTown/scripts.pory"
-	call_if_unset FLAG_UNUSED_0x023, LittlerootTown_EventScript_SetupRivalBattle
+	call_if_unset RIVAL_STARTER_BATTLE, LittlerootTown_EventScript_SetupRivalBattle
 # 56 "data/maps/LittlerootTown/scripts.pory"
 	end
 # 57 "data/maps/LittlerootTown/scripts.pory"
@@ -2055,50 +2055,84 @@ LittlerootTown_EventScript_MemeSign::
 
 LittlerootTown_EventScript_SetupRivalBattle::
 # 1031 "data/maps/LittlerootTown/scripts.pory"
-	goto_if_unset FLAG_UNUSED_0x020, LittlerootTown_EventScript_SetupRivalBattle_3
+	goto_if_unset STARTER_BALL_ONE, LittlerootTown_EventScript_SetupRivalBattle_3
 LittlerootTown_EventScript_SetupRivalBattle_2:
 # 1035 "data/maps/LittlerootTown/scripts.pory"
-	clearflag FLAG_UNUSED_0x023
+	clearflag RIVAL_STARTER_BATTLE
 	return
 
 LittlerootTown_EventScript_SetupRivalBattle_1:
 # 1032 "data/maps/LittlerootTown/scripts.pory"
-	setflag FLAG_UNUSED_0x023
+	setflag RIVAL_STARTER_BATTLE
 	return
 
 LittlerootTown_EventScript_SetupRivalBattle_3:
 # 1031 "data/maps/LittlerootTown/scripts.pory"
-	goto_if_unset FLAG_UNUSED_0x021, LittlerootTown_EventScript_SetupRivalBattle_5
+	goto_if_unset STARTER_BALL_TWO, LittlerootTown_EventScript_SetupRivalBattle_5
 	goto LittlerootTown_EventScript_SetupRivalBattle_2
 
 LittlerootTown_EventScript_SetupRivalBattle_5:
 # 1031 "data/maps/LittlerootTown/scripts.pory"
-	goto_if_unset FLAG_UNUSED_0x022, LittlerootTown_EventScript_SetupRivalBattle_1
+	goto_if_unset STARTER_BALL_THREE, LittlerootTown_EventScript_SetupRivalBattle_1
 	goto LittlerootTown_EventScript_SetupRivalBattle_2
 
 
 LittlerootTown_EventScript_MayRivalBattle::
 # 1041 "data/maps/LittlerootTown/scripts.pory"
-	trainerbattle_single TRAINER_MAY_ROUTE_103_TORCHIC, May_Intro, May_Outro
-# 1042 "data/maps/LittlerootTown/scripts.pory"
-	msgbox PostBattle_May, MSGBOX_AUTOCLOSE
-# 1043 "data/maps/LittlerootTown/scripts.pory"
-	waitmessage
+	trainerbattle_single TRAINER_MAY_ROUTE_103_TORCHIC, May_Intro, May_Outro, RivalBattleOver
 	end
 
+
+RivalBattleOver::
+# 1049 "data/maps/LittlerootTown/scripts.pory"
+	lockall
+# 1050 "data/maps/LittlerootTown/scripts.pory"
+	applymovement 9, MayLeave
+# 1051 "data/maps/LittlerootTown/scripts.pory"
+	waitmovement 0
+# 1052 "data/maps/LittlerootTown/scripts.pory"
+	removeobject 9
+# 1053 "data/maps/LittlerootTown/scripts.pory"
+	setflag RIVAL_STARTER_BATTLE
+# 1054 "data/maps/LittlerootTown/scripts.pory"
+	releaseall
+	return
+
+
+# 1057 "data/maps/LittlerootTown/scripts.pory"
+MayLeave:
+# 1058 "data/maps/LittlerootTown/scripts.pory"
+	face_down
+# 1059 "data/maps/LittlerootTown/scripts.pory"
+	walk_down
+# 1060 "data/maps/LittlerootTown/scripts.pory"
+	walk_left
+# 1060 "data/maps/LittlerootTown/scripts.pory"
+	walk_left
+# 1060 "data/maps/LittlerootTown/scripts.pory"
+	walk_left
+# 1060 "data/maps/LittlerootTown/scripts.pory"
+	walk_left
+# 1060 "data/maps/LittlerootTown/scripts.pory"
+	walk_left
+# 1060 "data/maps/LittlerootTown/scripts.pory"
+	walk_left
+# 1060 "data/maps/LittlerootTown/scripts.pory"
+	walk_left
+	step_end
 
 LittlerootTown_EventScript_MemeSign_Text_0:
 # 1026 "data/maps/LittlerootTown/scripts.pory"
 	.string "Emyl go get laid!$"
 
 May_Intro::
-# 1048 "data/maps/LittlerootTown/scripts.pory"
+# 1064 "data/maps/LittlerootTown/scripts.pory"
 	.string "You'll never win$"
 
 May_Outro::
-# 1052 "data/maps/LittlerootTown/scripts.pory"
+# 1068 "data/maps/LittlerootTown/scripts.pory"
 	.string "Doesn't count$"
 
 PostBattle_May::
-# 1056 "data/maps/LittlerootTown/scripts.pory"
+# 1072 "data/maps/LittlerootTown/scripts.pory"
 	.string "I'll win next time$"
