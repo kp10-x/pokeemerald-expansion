@@ -1,8 +1,8 @@
 raw `
-.set LOCALID_TWIN, 1
-.set LOCALID_MOM, 4
-.set LOCALID_RIVAL, 7
-.set LOCALID_BIRCH, 8
+.set LOCALID_TWIN, 10
+.set LOCALID_MOM, 3
+.set LOCALID_RIVAL, 6
+.set LOCALID_BIRCH, 7
 
 LittlerootTown_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, LittlerootTown_OnTransition
@@ -1030,6 +1030,7 @@ script LittlerootTown_EventScript_MemeSign {
 script LittlerootTown_EventScript_SetupRivalBattle{
 	if (!(flag(STARTER_BALL_ONE) || flag(STARTER_BALL_TWO) || flag(STARTER_BALL_THREE))){
 		setflag(RIVAL_STARTER_BATTLE)
+		setvar(VAR_LITTLEROOT_STATE, 0)
 	}
 	else{
 		clearflag(RIVAL_STARTER_BATTLE)
@@ -1047,10 +1048,11 @@ script LittlerootTown_EventScript_MayRivalBattle{
 
 script RivalBattleOver{
 	lockall
-	applymovement(9, MayLeave)
+	applymovement(8, MayLeave)
 	waitmovement(0)
-	removeobject(9)
+	removeobject(8)
 	setflag(RIVAL_STARTER_BATTLE)
+	setvar(VAR_LITTLEROOT_STATE, 1)
 	releaseall
 }
  
@@ -1100,7 +1102,7 @@ script LittlerootTown_EventScript_Rayquaza {
  
 script Won_or_Caught {
 	fadescreen(FADE_TO_BLACK)
-	removeobject(10)
+	removeobject(9)
 	fadescreen(FADE_FROM_BLACK)
 	msgbox("You are the Pokemon Master")
 	return
@@ -1111,8 +1113,20 @@ script RanAway {
 	msgbox("Kyuhh....", MSGBOX_AUTOCLOSE)
 	delay(20)
 	fadescreen(FADE_TO_BLACK)
-	removeobject(10)
+	removeobject(9)
 	fadescreen(FADE_FROM_BLACK)
 	msgbox("You are not the Pokemon Master")
 	return
+}
+
+script LittlerootTown_Trigger_BlockPath{
+	lockall
+	msgbox("You Don't Have a Pokemon Yet")
+	applymovement(OBJ_EVENT_ID_PLAYER, StopPlayer)
+	waitmovement(0)
+	releaseall
+}
+ 
+movement StopPlayer{
+	walk_down
 }
