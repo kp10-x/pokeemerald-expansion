@@ -35,8 +35,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BOY_2",
-      "x": 14,
-      "y": 17,
+      "x": 19,
+      "y": 18,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 2,
@@ -167,10 +167,10 @@
       "dest_warp_id": "1"
     },
     {
-      "x": 7,
+      "x": 5,
       "y": 16,
       "elevation": 0,
-      "dest_map": "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB",
+      "dest_map": "MAP_LITTLEROOT_TOWN_POKECENTER",
       "dest_warp_id": "0"
     },
     {
@@ -185,6 +185,13 @@
       "y": 14,
       "elevation": 0,
       "dest_map": "MAP_LITTLEROOT_TOWN_MAYS_HOUSE_2F",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 12,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_LITTLEROOT_TOWN_POKEMART",
       "dest_warp_id": "0"
     }
   ],
@@ -255,8 +262,8 @@
     },
     {
       "type": "sign",
-      "x": 6,
-      "y": 17,
+      "x": 18,
+      "y": 13,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "LittlerootTown_EventScript_BirchsLabSign"

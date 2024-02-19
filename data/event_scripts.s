@@ -1069,3 +1069,7 @@ EventScript_VsSeekerChargingDone::
 	.include "data/text/birch_speech.inc"
 
 	.include "data/maps/NewLab/scripts.inc"
+
+	.include "data/maps/LittlerootTown_Pokemart/scripts.inc"
+
+	.include "data/maps/LittlerootTown_Pokecenter/scripts.inc"

@@ -4420,6 +4420,26 @@
       "secondary_tileset": "gTileset_Lab",
       "border_filepath": "data/layouts/NewLab/border.bin",
       "blockdata_filepath": "data/layouts/NewLab/map.bin"
+    },
+    {
+      "id": "LAYOUT_LITTLEROOT_TOWN_POKEMART",
+      "name": "LittlerootTown_Pokemart_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Shop",
+      "border_filepath": "data/layouts/LittlerootTown_Pokemart/border.bin",
+      "blockdata_filepath": "data/layouts/LittlerootTown_Pokemart/map.bin"
+    },
+    {
+      "id": "LAYOUT_LITTLEROOT_TOWN_POKECENTER",
+      "name": "LittlerootTown_Pokecenter_Layout",
+      "width": 14,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/LittlerootTown_Pokecenter/border.bin",
+      "blockdata_filepath": "data/layouts/LittlerootTown_Pokecenter/map.bin"
     }
   ]
 }

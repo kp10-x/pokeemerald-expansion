@@ -1,0 +1,37 @@
+mapscripts LittlerootTown_Pokemart_MapScripts {
+ 
+}
+ 
+script Littleroot_Mart_Employee{
+    lock
+    faceplayer
+    message("How may I serve you?")
+    waitmessage
+    pokemart(Littleroot_Mart)
+    msgbox("Please Come Again.")
+    release
+    end
+}
+ 
+raw`
+ 
+.align 2
+Littleroot_Mart::
+	.2byte ITEM_POTION
+	.2byte ITEM_MACH_BIKE
+	.2byte ITEM_MASTER_BALL
+	.2byte ITEM_RARE_CANDY
+	.2byte ITEM_NONE
+	release
+	end
+ 
+`
+ 
+ 
+# mart MyMartItems {
+#	 ITEM_LAVA_COOKIE
+#	 ITEM_MOOMOO_MILK
+#	 ITEM_RARE_CANDY
+#	 ITEM_LEMONADE
+#	 ITEM_BERRY_JUICE
+# }

@@ -1,0 +1,37 @@
+mapscripts LittlerootTown_Pokecenter_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION: Littleroot_PokemonCenter_OnTransition
+	MAP_SCRIPT_ON_RESUME: CableClub_OnResume
+}
+ 
+script Littleroot_PokemonCenter_OnTransition {
+   	setrespawn(HEAL_LOCATION_LITTLEROOT_TOWN)
+	end 
+}
+ 
+ 
+script Pokecenter_Nurse{
+    setvar(VAR_0x800B, 1)
+	call(Common_EventScript_PkmnCenterNurse)
+	waitmessage
+	waitbuttonpress
+	release
+	end
+}
+ 
+ 
+script Pokecenter_Healer{
+    lock
+    faceplayer
+    msgbox("Would you like me to heal your party?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES){
+        incrementgamestat(GAME_STAT_USED_POKECENTER)
+        special(HealPlayerParty)
+        msgbox("Come again soon.")
+        waitmessage
+        release
+        end
+    }
+    else{
+        msgbox("Have a nice day", MSGBOX_NPC)
+    }
+}
