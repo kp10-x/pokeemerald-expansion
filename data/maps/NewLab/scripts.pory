@@ -7,29 +7,39 @@ script NewLab_EventScript_BallDefault{
 }
  
 script NewLab_EventScript_Birch{
-    lockall
-    faceplayer
     if(!(flag(STARTER_BALL_ONE) || flag(STARTER_BALL_TWO) || flag(STARTER_BALL_THREE))){
-        msgbox("Hello, would you like to see more?", MSGBOX_YESNO)
-        if(var(VAR_RESULT) == YES){
-            if(var(VAR_SELECT_STARTER) != 2){
-                addvar(VAR_SELECT_STARTER, 1)
-            }
-            else{
-                setvar(VAR_SELECT_STARTER, 0)
-            }
-            msgbox("Choose your Pokemon wisely")
+        lock
+        faceplayer
+        message("Would you like to see more?")
+        multichoice(25, 5, MULTI_STARTER_CHOICE, 0)
+        closemessage
+        if (var(VAR_RESULT) == 0){
+            call(StarterFade)
+            setvar(VAR_SELECT_STARTER, 2)
         }
-        else{
-            msgbox("Choose your Pokemon wisely")
+        elif (var(VAR_RESULT) == 1){
+            call(StarterFade)
+            setvar(VAR_SELECT_STARTER, 1)
         }
+        elif (var(VAR_RESULT) == 2){
+            call(StarterFade)
+            setvar(VAR_SELECT_STARTER, 0)
+        }
+        msgbox("Choose wisely...")
+        waitmessage
+        release
     }
     else{
         msgbox("Take care of your Pokemon")
     }
-    waitmessage
-    releaseall
     end
+}
+
+script StarterFade{
+    fadescreen(FADE_TO_BLACK)
+    delay(20)
+    fadescreen(FADE_FROM_BLACK)
+    return
 }
  
 script NewLab_EventScript_PokeballOne{
@@ -100,7 +110,7 @@ script NewLab_EventScript_Mudkip{
     showmonpic(SPECIES_MUDKIP, 10,3)
     msgbox("Do you want to choose Mudkip?", MSGBOX_YESNO)
     if(var(VAR_RESULT) == YES){
-        givemon(SPECIES_MUDKIP, 10, ITEM_MASTER_BALL)
+        givemon(SPECIES_MUDKIP, 15, ITEM_MASTER_BALL)
         if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
             playfanfare(MUS_OBTAIN_ITEM)
             msgbox("Recieved Mudkip")
@@ -133,7 +143,7 @@ script NewLab_EventScript_Totodile{
     showmonpic(SPECIES_TOTODILE, 10,3)
     msgbox("Do you want to choose Totodile?", MSGBOX_YESNO)
     if(var(VAR_RESULT) == YES){
-        givemon(SPECIES_TOTODILE, 10, ITEM_MASTER_BALL)
+        givemon(SPECIES_TOTODILE, 15, ITEM_MASTER_BALL)
         if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
             playfanfare(MUS_OBTAIN_ITEM)
             msgbox("Recieved Totodile")
@@ -166,7 +176,7 @@ script NewLab_EventScript_Squirtle{
     showmonpic(SPECIES_SQUIRTLE, 10,3)
     msgbox("Do you want to choose Squirtle?", MSGBOX_YESNO)
     if(var(VAR_RESULT) == YES){
-        givemon(SPECIES_SQUIRTLE, 10, ITEM_MASTER_BALL)
+        givemon(SPECIES_SQUIRTLE, 15, ITEM_MASTER_BALL)
         if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
             playfanfare(MUS_OBTAIN_ITEM)
             msgbox("Recieved Squirtle")
@@ -199,7 +209,7 @@ script NewLab_EventScript_Treecko{
     showmonpic(SPECIES_TREECKO, 10,3)
     msgbox("Do you want to choose Treecko?", MSGBOX_YESNO)
     if(var(VAR_RESULT) == YES){
-        givemon(SPECIES_TREECKO, 10, ITEM_MASTER_BALL)
+        givemon(SPECIES_TREECKO, 15, ITEM_MASTER_BALL)
         if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
             playfanfare(MUS_OBTAIN_ITEM)
             msgbox("Recieved Treecko")
@@ -232,7 +242,7 @@ script NewLab_EventScript_Chikorita{
     showmonpic(SPECIES_CHIKORITA, 10,3)
     msgbox("Do you want to choose Chikorita?", MSGBOX_YESNO)
     if(var(VAR_RESULT) == YES){
-        givemon(SPECIES_CHIKORITA, 10, ITEM_MASTER_BALL)
+        givemon(SPECIES_CHIKORITA, 15, ITEM_MASTER_BALL)
         if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
             playfanfare(MUS_OBTAIN_ITEM)
             msgbox("Recieved Chikorita")
@@ -265,7 +275,7 @@ script NewLab_EventScript_Bulbasaur{
     showmonpic(SPECIES_BULBASAUR, 10,3)
     msgbox("Do you want to choose Bulbasaur?", MSGBOX_YESNO)
     if(var(VAR_RESULT) == YES){
-        givemon(SPECIES_BULBASAUR, 10, ITEM_MASTER_BALL)
+        givemon(SPECIES_BULBASAUR, 15, ITEM_MASTER_BALL)
         if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
             playfanfare(MUS_OBTAIN_ITEM)
             msgbox("Recieved Bulbasaur")
@@ -298,7 +308,7 @@ script NewLab_EventScript_Torchic{
     showmonpic(SPECIES_TORCHIC, 10,3)
     msgbox("Do you want to choose Torchic?", MSGBOX_YESNO)
     if(var(VAR_RESULT) == YES){
-        givemon(SPECIES_TORCHIC, 10, ITEM_MASTER_BALL)
+        givemon(SPECIES_TORCHIC, 15, ITEM_MASTER_BALL)
         if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
             playfanfare(MUS_OBTAIN_ITEM)
             msgbox("Recieved Torchic")
@@ -331,7 +341,7 @@ script NewLab_EventScript_Cyndaquil{
     showmonpic(SPECIES_CYNDAQUIL, 10,3)
     msgbox("Do you want to choose Cyndaquil?", MSGBOX_YESNO)
     if(var(VAR_RESULT) == YES){
-        givemon(SPECIES_CYNDAQUIL, 10, ITEM_MASTER_BALL)
+        givemon(SPECIES_CYNDAQUIL, 15, ITEM_MASTER_BALL)
         if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
             playfanfare(MUS_OBTAIN_ITEM)
             msgbox("Recieved Cyndaquil")
@@ -364,7 +374,7 @@ script NewLab_EventScript_Charmander{
     showmonpic(SPECIES_CHARMANDER, 10,3)
     msgbox("Do you want to choose Charmander?", MSGBOX_YESNO)
     if(var(VAR_RESULT) == YES){
-        givemon(SPECIES_CHARMANDER, 10, ITEM_MASTER_BALL)
+        givemon(SPECIES_CHARMANDER, 15, ITEM_MASTER_BALL)
         if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
             playfanfare(MUS_OBTAIN_ITEM)
             msgbox("Recieved Charmander")

@@ -2121,9 +2121,108 @@ MayLeave:
 	walk_left
 	step_end
 
+LittlerootTown_EventScript_Rayquaza::
+# 1077 "data/maps/LittlerootTown/scripts.pory"
+	lockall
+# 1078 "data/maps/LittlerootTown/scripts.pory"
+	setflag RAYQUAZA_SPRITE_BATTLE
+# 1079 "data/maps/LittlerootTown/scripts.pory"
+	playmoncry SPECIES_RAYQUAZA, CRY_MODE_ENCOUNTER
+# 1080 "data/maps/LittlerootTown/scripts.pory"
+	delay 40
+# 1081 "data/maps/LittlerootTown/scripts.pory"
+	waitmoncry
+# 1082 "data/maps/LittlerootTown/scripts.pory"
+	setwildbattle SPECIES_RAYQUAZA, 10, ITEM_LIFE_ORB
+# 1083 "data/maps/LittlerootTown/scripts.pory"
+	dowildbattle
+# 1084 "data/maps/LittlerootTown/scripts.pory"
+	specialvar VAR_RESULT, GetBattleOutcome
+# 1085 "data/maps/LittlerootTown/scripts.pory"
+	compare VAR_RESULT, B_OUTCOME_CAUGHT
+	goto_if_eq LittlerootTown_EventScript_Rayquaza_2
+# 1088 "data/maps/LittlerootTown/scripts.pory"
+	compare VAR_RESULT, B_OUTCOME_WON
+	goto_if_eq LittlerootTown_EventScript_Rayquaza_3
+# 1091 "data/maps/LittlerootTown/scripts.pory"
+	compare VAR_RESULT, B_OUTCOME_RAN
+	goto_if_eq LittlerootTown_EventScript_Rayquaza_4
+# 1094 "data/maps/LittlerootTown/scripts.pory"
+	compare VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED
+	goto_if_eq LittlerootTown_EventScript_Rayquaza_5
+LittlerootTown_EventScript_Rayquaza_1:
+# 1097 "data/maps/LittlerootTown/scripts.pory"
+	waitmessage
+# 1098 "data/maps/LittlerootTown/scripts.pory"
+	releaseall
+	return
+
+LittlerootTown_EventScript_Rayquaza_2:
+# 1086 "data/maps/LittlerootTown/scripts.pory"
+	call Won_or_Caught
+	goto LittlerootTown_EventScript_Rayquaza_1
+
+LittlerootTown_EventScript_Rayquaza_3:
+# 1089 "data/maps/LittlerootTown/scripts.pory"
+	call Won_or_Caught
+	goto LittlerootTown_EventScript_Rayquaza_1
+
+LittlerootTown_EventScript_Rayquaza_4:
+# 1092 "data/maps/LittlerootTown/scripts.pory"
+	call RanAway
+	goto LittlerootTown_EventScript_Rayquaza_1
+
+LittlerootTown_EventScript_Rayquaza_5:
+# 1095 "data/maps/LittlerootTown/scripts.pory"
+	call RanAway
+	goto LittlerootTown_EventScript_Rayquaza_1
+
+
+Won_or_Caught::
+# 1102 "data/maps/LittlerootTown/scripts.pory"
+	fadescreen FADE_TO_BLACK
+# 1103 "data/maps/LittlerootTown/scripts.pory"
+	removeobject 10
+# 1104 "data/maps/LittlerootTown/scripts.pory"
+	fadescreen FADE_FROM_BLACK
+# 1105 "data/maps/LittlerootTown/scripts.pory"
+	msgbox Won_or_Caught_Text_0
+	return
+
+
+RanAway::
+# 1110 "data/maps/LittlerootTown/scripts.pory"
+	playmoncry SPECIES_RAYQUAZA, CRY_MODE_ENCOUNTER
+# 1111 "data/maps/LittlerootTown/scripts.pory"
+	msgbox RanAway_Text_0, MSGBOX_AUTOCLOSE
+# 1112 "data/maps/LittlerootTown/scripts.pory"
+	delay 20
+# 1113 "data/maps/LittlerootTown/scripts.pory"
+	fadescreen FADE_TO_BLACK
+# 1114 "data/maps/LittlerootTown/scripts.pory"
+	removeobject 10
+# 1115 "data/maps/LittlerootTown/scripts.pory"
+	fadescreen FADE_FROM_BLACK
+# 1116 "data/maps/LittlerootTown/scripts.pory"
+	msgbox RanAway_Text_1
+	return
+
+
 LittlerootTown_EventScript_MemeSign_Text_0:
 # 1026 "data/maps/LittlerootTown/scripts.pory"
 	.string "Emyl go get laid!$"
+
+Won_or_Caught_Text_0:
+# 1105 "data/maps/LittlerootTown/scripts.pory"
+	.string "You are the Pokemon Master$"
+
+RanAway_Text_0:
+# 1111 "data/maps/LittlerootTown/scripts.pory"
+	.string "Kyuhh....$"
+
+RanAway_Text_1:
+# 1116 "data/maps/LittlerootTown/scripts.pory"
+	.string "You are not the Pokemon Master$"
 
 May_Intro::
 # 1064 "data/maps/LittlerootTown/scripts.pory"

@@ -1843,3 +1843,7 @@ const u8 gText_Berries[] = _("BERRIES");
 const u8 gText_ExpShareOn[] = _("The Exp. Share has been turned on.{PAUSE_UNTIL_PRESS}");
 const u8 gText_ExpShareOff[] = _("The Exp. Share has been turned off.{PAUSE_UNTIL_PRESS}");
 const u8 gText_BasePointsResetToZero[] = _("{STR_VAR_1}'s base points\nwere all reset to zero!{PAUSE_UNTIL_PRESS}");
+
+const u8 gText_KantoStarter[] = _("KANTO");
+const u8 gText_JohtoStarter[] = _("JOHTO");
+const u8 gText_HoennStarter[] = _("HOENN");
