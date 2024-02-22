@@ -4,6 +4,8 @@ mapscripts NewLab_MapScripts {
  
 script NewLab_EventScript_BallDefault{
     setvar(VAR_SELECT_STARTER_REGION, 0)
+    call(Common_EventScript_SetupRivalGfxId)
+    removeobject(5)
 }
 
 script Start_StarterChoose_Sequence{
@@ -217,7 +219,7 @@ script NewLab_EventScript_GiveStarter{
             msgbox("No More Room For Pokemon")
         }
         closemessage
-        call(InitiatePokedexSequence)
+        call(InitiatePokedexSequenceAndRivalBattle)
     }
     else{
         hidemonpic
@@ -265,22 +267,27 @@ text NewLab_NotChosen{
     "You did not choose the Pokemon"
 }
 
-script InitiatePokedexSequence{
+script InitiatePokedexSequenceAndRivalBattle{
 	lock
     delay(20)
     applymovement(OBJ_EVENT_ID_PLAYER, TurnToProf)
     if(var(VAR_TEMP_0) == 1){
+        setobjectxy(5, 5, 11)
         applymovement(4, MoveBallOne)
     }
     if(var(VAR_TEMP_0) == 2){
+        setobjectxy(5, 6, 11)
         applymovement(4, MoveBallTwo)
     }
     if(var(VAR_TEMP_0) == 3){
+        setobjectxy(5, 7, 11)
         applymovement(4, MoveBallThree)
     }    
 	waitmovement(0)
     delay(20)
     call(GivePokedex)
+    addobject(5)
+    call(RivalBattleTrigger)
 	release
     return
 }
@@ -348,4 +355,57 @@ script DontTouchThat{
  
 movement MoveAwayFromThere{
     walk_left * 2
+}
+
+// Rival Battle Scripts 
+ 
+script RivalBattleTrigger{
+    checkplayergender
+    goto_if_eq(VAR_RESULT, MALE, MayBattle)
+    goto_if_eq(VAR_RESULT, FEMALE, BrendanBattle)
+}
+
+script MayBattle{
+    playbgm(MUS_ENCOUNTER_MAY, TRUE)
+    turnobject(OBJ_EVENT_ID_PLAYER, DIR_SOUTH)
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark)
+	waitmovement(0)
+    applymovement(5, RivalMoveUp)
+    waitmovement(0)
+    trainerbattle_single(TRAINER_MAY_ROUTE_103_TREECKO, RivalIntro, Route103_Text_MayDefeated, RivalBattleOver)
+	end
+}
+ 
+script BrendanBattle{
+    playbgm(MUS_ENCOUNTER_BRENDAN, TRUE)
+    turnobject(OBJ_EVENT_ID_PLAYER, DIR_SOUTH)
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark)
+	waitmovement(0)
+    applymovement(5, RivalMoveUp)
+    waitmovement(0)
+    trainerbattle_single(TRAINER_BRENDAN_ROUTE_103_TREECKO, RivalIntro, Route103_Text_BrendanDefeated, RivalBattleOver)
+	end
+}
+
+movement RivalMoveUp{
+    walk_up * 4
+}
+ 
+movement RivalLeave{
+    walk_down * 5
+}
+
+script RivalBattleOver{
+	lockall
+    msgbox(format("Well that wasn't fun. I'll beat you next time."))
+    applymovement(5, RivalLeave)
+    waitmovement(0)
+	setflag(RIVAL_STARTER_BATTLE)
+	setvar(VAR_LITTLEROOT_STATE, 3) 
+    removeobject(5)
+	releaseall
+}
+
+text RivalIntro{
+    "We'll See if you have what it takes!"
 }

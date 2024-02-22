@@ -1,5 +1,5 @@
 raw `
-.set LOCALID_TWIN, 10
+.set LOCALID_TWIN, 9
 .set LOCALID_MOM, 3
 .set LOCALID_RIVAL, 6
 .set LOCALID_BIRCH, 7
@@ -52,7 +52,7 @@ LittlerootTown_OnTransition:
 	call_if_eq VAR_LITTLEROOT_RIVAL_STATE, 3, LittlerootTown_EventScript_SetRivalLeftForRoute103
 	call_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 1, LittlerootTown_EventScript_HideMapNamePopup
 	call_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 2, LittlerootTown_EventScript_LeftLabAfterDexUpgrade
-	call_if_unset RIVAL_STARTER_BATTLE, LittlerootTown_EventScript_SetupRivalBattle
+	// call_if_unset RIVAL_STARTER_BATTLE, LittlerootTown_EventScript_SetupRivalBattle
 	end
 
 LittlerootTown_EventScript_LeftLabAfterDexUpgrade::
@@ -1027,77 +1027,77 @@ script LittlerootTown_EventScript_MemeSign {
 	releaseall
 }
 
-script LittlerootTown_EventScript_SetupRivalBattle{
-	if (!flag(FLAG_SYS_POKEMON_GET)){
-		setflag(RIVAL_STARTER_BATTLE)
-		setvar(VAR_LITTLEROOT_STATE, 0)
-	}
-	else{
-		if(var(VAR_LITTLEROOT_STATE) == 2){
-			clearflag(RIVAL_STARTER_BATTLE)
-		}
-	}
-}
+// script LittlerootTown_EventScript_SetupRivalBattle{
+// 	if (!flag(FLAG_SYS_POKEMON_GET)){
+// 		setflag(RIVAL_STARTER_BATTLE)
+// 		setvar(VAR_LITTLEROOT_STATE, 0)
+// 	}
+// 	else{
+// 		if(var(VAR_LITTLEROOT_STATE) == 2){
+// 			clearflag(RIVAL_STARTER_BATTLE)
+// 		}
+// 	}
+// }
  
-script LittlerootTown_EventScript_MayRivalBattle{
+// script LittlerootTown_EventScript_MayRivalBattle{
  
-	trainerbattle_single(TRAINER_MAY_ROUTE_103_TORCHIC, May_Intro, May_Outro, RivalBattleOver)
-	// msgbox(PostBattle_May, MSGBOX_AUTOCLOSE) 
-	// waitmessage
-    end
+// 	trainerbattle_single(TRAINER_MAY_ROUTE_103_TORCHIC, May_Intro, May_Outro, RivalBattleOver)
+// 	// msgbox(PostBattle_May, MSGBOX_AUTOCLOSE) 
+// 	// waitmessage
+//     end
  
-}
+// }
 
-script RivalBattleOver{
-	lockall
-	applymovement(8, MayLeave)
-	special(SpawnCameraObject)
-	applymovement(OBJ_EVENT_ID_CAMERA, MayLeave)
-	waitmovement(0)
+// script RivalBattleOver{
+// 	lockall
+// 	applymovement(8, MayLeave)
+// 	special(SpawnCameraObject)
+// 	applymovement(OBJ_EVENT_ID_CAMERA, MayLeave)
+// 	waitmovement(0)
 
-	opendoor(14, 8)
-	waitdooranim
-	applymovement(8, MayEnterDoor)
-	waitmovement(0)
-	removeobject(8)
-	closedoor(14, 8)
-	waitdooranim
+// 	opendoor(14, 8)
+// 	waitdooranim
+// 	applymovement(8, MayEnterDoor)
+// 	waitmovement(0)
+// 	removeobject(8)
+// 	closedoor(14, 8)
+// 	waitdooranim
 
-	applymovement(OBJ_EVENT_ID_CAMERA, PostMayCameraRevert)
-	waitmovement(0)
-	special(RemoveCameraObject)
+// 	applymovement(OBJ_EVENT_ID_CAMERA, PostMayCameraRevert)
+// 	waitmovement(0)
+// 	special(RemoveCameraObject)
 
-	setflag(RIVAL_STARTER_BATTLE)
-	setvar(VAR_LITTLEROOT_STATE, 3)
-	releaseall
-}
+// 	setflag(RIVAL_STARTER_BATTLE)
+// 	setvar(VAR_LITTLEROOT_STATE, 3)
+// 	releaseall
+// }
  
-movement MayLeave {
-	face_down
-    walk_down 
-    walk_left * 8
-	walk_up * 6
-}
-movement MayEnterDoor {
-	walk_up
-}
+// movement MayLeave {
+// 	face_down
+//     walk_down 
+//     walk_left * 8
+// 	walk_up * 6
+// }
+// movement MayEnterDoor {
+// 	walk_up
+// }
  
-movement PostMayCameraRevert {
-	walk_fast_right * 8
-	walk_fast_down * 5
-}
+// movement PostMayCameraRevert {
+// 	walk_fast_right * 8
+// 	walk_fast_down * 5
+// }
 
-text May_Intro{
-    "You'll never win"
-}
+// text May_Intro{
+//     "You'll never win"
+// }
  
-text May_Outro{
-    "Doesn't count"
-}
+// text May_Outro{
+//     "Doesn't count"
+// }
  
-text PostBattle_May{
-    "I'll win next time"
-}
+// text PostBattle_May{
+//     "I'll win next time"
+// }
 
 script LittlerootTown_EventScript_Rayquaza {
 	lockall
@@ -1131,7 +1131,7 @@ script LittlerootTown_EventScript_Rayquaza {
  
 script Won_or_Caught {
 	fadescreen(FADE_TO_BLACK)
-	removeobject(9)
+	removeobject(8)
 	fadescreen(FADE_FROM_BLACK)
 	msgbox("You are the Pokemon Master")
 	return
@@ -1142,7 +1142,7 @@ script RanAway {
 	msgbox("Kyuhh....", MSGBOX_AUTOCLOSE)
 	delay(20)
 	fadescreen(FADE_TO_BLACK)
-	removeobject(9)
+	removeobject(8)
 	fadescreen(FADE_FROM_BLACK)
 	msgbox("You are not the Pokemon Master")
 	return
@@ -1155,11 +1155,11 @@ script RayquazaTrigger {
 	waitmovement(0)
  
 	call(RayquazaShake)
-	applymovement(9, RayquazaMove)
+	applymovement(8, RayquazaMove)
 	waitmovement(0)
  
 	call(RayquazaShake)
-	applymovement(9, RayquazaMove)
+	applymovement(8, RayquazaMove)
 	waitmovement(0)
  
 	setvar(VAR_LITTLEROOT_STATE, 4)

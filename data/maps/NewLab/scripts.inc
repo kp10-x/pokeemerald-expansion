@@ -7,707 +7,818 @@ NewLab_MapScripts::
 NewLab_EventScript_BallDefault::
 # 6 "data/maps/NewLab/scripts.pory"
 	setvar VAR_SELECT_STARTER_REGION, 0
+# 7 "data/maps/NewLab/scripts.pory"
+	call Common_EventScript_SetupRivalGfxId
+# 8 "data/maps/NewLab/scripts.pory"
+	removeobject 5
 	return
 
 
 Start_StarterChoose_Sequence::
-# 10 "data/maps/NewLab/scripts.pory"
-	lock
-# 11 "data/maps/NewLab/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, MeetBirch
 # 12 "data/maps/NewLab/scripts.pory"
-	waitmovement 0
+	lock
 # 13 "data/maps/NewLab/scripts.pory"
-	msgbox BeginAdventureText
+	applymovement OBJ_EVENT_ID_PLAYER, MeetBirch
 # 14 "data/maps/NewLab/scripts.pory"
-	waitmessage
-# 15 "data/maps/NewLab/scripts.pory"
-	closemessage
-# 16 "data/maps/NewLab/scripts.pory"
-	applymovement 4, ProfMove
-# 17 "data/maps/NewLab/scripts.pory"
 	waitmovement 0
+# 15 "data/maps/NewLab/scripts.pory"
+	msgbox BeginAdventureText
+# 16 "data/maps/NewLab/scripts.pory"
+	waitmessage
+# 17 "data/maps/NewLab/scripts.pory"
+	closemessage
 # 18 "data/maps/NewLab/scripts.pory"
-	setvar VAR_LITTLEROOT_STATE, 1
+	applymovement 4, ProfMove
 # 19 "data/maps/NewLab/scripts.pory"
+	waitmovement 0
+# 20 "data/maps/NewLab/scripts.pory"
+	setvar VAR_LITTLEROOT_STATE, 1
+# 21 "data/maps/NewLab/scripts.pory"
 	release
 	return
 
 
 Start_StarterChoose_Sequence2::
-# 23 "data/maps/NewLab/scripts.pory"
-	lock
-# 24 "data/maps/NewLab/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, MeetBirch2
 # 25 "data/maps/NewLab/scripts.pory"
-	waitmovement 0
+	lock
 # 26 "data/maps/NewLab/scripts.pory"
+	applymovement OBJ_EVENT_ID_PLAYER, MeetBirch2
+# 27 "data/maps/NewLab/scripts.pory"
+	waitmovement 0
+# 28 "data/maps/NewLab/scripts.pory"
 	goto Start_StarterChoose_Sequence
 	return
 
 
-# 29 "data/maps/NewLab/scripts.pory"
+# 31 "data/maps/NewLab/scripts.pory"
 MeetBirch:
-# 30 "data/maps/NewLab/scripts.pory"
+# 32 "data/maps/NewLab/scripts.pory"
 	walk_up
-# 30 "data/maps/NewLab/scripts.pory"
+# 32 "data/maps/NewLab/scripts.pory"
 	walk_up
-# 30 "data/maps/NewLab/scripts.pory"
+# 32 "data/maps/NewLab/scripts.pory"
 	walk_up
 	step_end
 
-# 32 "data/maps/NewLab/scripts.pory"
+# 34 "data/maps/NewLab/scripts.pory"
 MeetBirch2:
-# 33 "data/maps/NewLab/scripts.pory"
+# 35 "data/maps/NewLab/scripts.pory"
 	walk_left
 	step_end
 
-# 35 "data/maps/NewLab/scripts.pory"
-ProfMove:
-# 36 "data/maps/NewLab/scripts.pory"
-	walk_right
-# 36 "data/maps/NewLab/scripts.pory"
-	walk_right
 # 37 "data/maps/NewLab/scripts.pory"
-	walk_up
+ProfMove:
 # 38 "data/maps/NewLab/scripts.pory"
+	walk_right
+# 38 "data/maps/NewLab/scripts.pory"
+	walk_right
+# 39 "data/maps/NewLab/scripts.pory"
+	walk_up
+# 40 "data/maps/NewLab/scripts.pory"
 	face_down
 	step_end
 
 StopLeaving::
-# 52 "data/maps/NewLab/scripts.pory"
-	lockall
-# 53 "data/maps/NewLab/scripts.pory"
-	msgbox StopLeaving_Text_0
 # 54 "data/maps/NewLab/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, DoNotLeave
+	lockall
 # 55 "data/maps/NewLab/scripts.pory"
-	waitmovement 0
+	msgbox StopLeaving_Text_0
 # 56 "data/maps/NewLab/scripts.pory"
+	applymovement OBJ_EVENT_ID_PLAYER, DoNotLeave
+# 57 "data/maps/NewLab/scripts.pory"
+	waitmovement 0
+# 58 "data/maps/NewLab/scripts.pory"
 	releaseall
 	return
 
 
-# 58 "data/maps/NewLab/scripts.pory"
+# 60 "data/maps/NewLab/scripts.pory"
 DoNotLeave:
-# 59 "data/maps/NewLab/scripts.pory"
+# 61 "data/maps/NewLab/scripts.pory"
 	walk_up
 	step_end
 
 NewLab_EventScript_Birch::
-# 63 "data/maps/NewLab/scripts.pory"
+# 65 "data/maps/NewLab/scripts.pory"
 	goto_if_unset FLAG_SYS_POKEMON_GET, NewLab_EventScript_Birch_2
-# 86 "data/maps/NewLab/scripts.pory"
+# 88 "data/maps/NewLab/scripts.pory"
 	goto_if_set FLAG_SYS_POKEDEX_GET, NewLab_EventScript_Birch_14
 NewLab_EventScript_Birch_13:
-# 96 "data/maps/NewLab/scripts.pory"
+# 98 "data/maps/NewLab/scripts.pory"
 	msgbox NewLab_EventScript_Birch_Text_3, MSGBOX_NPC
 NewLab_EventScript_Birch_1:
 	end
 
 NewLab_EventScript_Birch_2:
-# 64 "data/maps/NewLab/scripts.pory"
-	lock
-# 65 "data/maps/NewLab/scripts.pory"
-	faceplayer
 # 66 "data/maps/NewLab/scripts.pory"
-	message NewLab_EventScript_Birch_Text_0
+	lock
 # 67 "data/maps/NewLab/scripts.pory"
-	multichoice 25, 5, MULTI_STARTER_CHOICE, 0
+	faceplayer
 # 68 "data/maps/NewLab/scripts.pory"
-	closemessage
+	message NewLab_EventScript_Birch_Text_0
 # 69 "data/maps/NewLab/scripts.pory"
+	multichoice 25, 5, MULTI_STARTER_CHOICE, 0
+# 70 "data/maps/NewLab/scripts.pory"
+	closemessage
+# 71 "data/maps/NewLab/scripts.pory"
 	compare VAR_RESULT, 0
 	goto_if_eq NewLab_EventScript_Birch_6
-# 73 "data/maps/NewLab/scripts.pory"
+# 75 "data/maps/NewLab/scripts.pory"
 	compare VAR_RESULT, 1
 	goto_if_eq NewLab_EventScript_Birch_7
-# 77 "data/maps/NewLab/scripts.pory"
+# 79 "data/maps/NewLab/scripts.pory"
 	compare VAR_RESULT, 2
 	goto_if_eq NewLab_EventScript_Birch_8
 NewLab_EventScript_Birch_5:
-# 81 "data/maps/NewLab/scripts.pory"
-	msgbox NewLab_EventScript_Birch_Text_1
-# 82 "data/maps/NewLab/scripts.pory"
-	waitmessage
 # 83 "data/maps/NewLab/scripts.pory"
+	msgbox NewLab_EventScript_Birch_Text_1
+# 84 "data/maps/NewLab/scripts.pory"
+	waitmessage
+# 85 "data/maps/NewLab/scripts.pory"
 	release
 	goto NewLab_EventScript_Birch_1
 
 NewLab_EventScript_Birch_6:
-# 70 "data/maps/NewLab/scripts.pory"
+# 72 "data/maps/NewLab/scripts.pory"
 	call StarterFade
-# 71 "data/maps/NewLab/scripts.pory"
+# 73 "data/maps/NewLab/scripts.pory"
 	setvar VAR_SELECT_STARTER_REGION, 2
 	goto NewLab_EventScript_Birch_5
 
 NewLab_EventScript_Birch_7:
-# 74 "data/maps/NewLab/scripts.pory"
+# 76 "data/maps/NewLab/scripts.pory"
 	call StarterFade
-# 75 "data/maps/NewLab/scripts.pory"
+# 77 "data/maps/NewLab/scripts.pory"
 	setvar VAR_SELECT_STARTER_REGION, 1
 	goto NewLab_EventScript_Birch_5
 
 NewLab_EventScript_Birch_8:
-# 78 "data/maps/NewLab/scripts.pory"
+# 80 "data/maps/NewLab/scripts.pory"
 	call StarterFade
-# 79 "data/maps/NewLab/scripts.pory"
+# 81 "data/maps/NewLab/scripts.pory"
 	setvar VAR_SELECT_STARTER_REGION, 0
 	goto NewLab_EventScript_Birch_5
 
 NewLab_EventScript_Birch_12:
-# 87 "data/maps/NewLab/scripts.pory"
+# 89 "data/maps/NewLab/scripts.pory"
 	msgbox NewLab_EventScript_Birch_Text_2, MSGBOX_YESNO
-# 88 "data/maps/NewLab/scripts.pory"
+# 90 "data/maps/NewLab/scripts.pory"
 	compare VAR_RESULT, YES
 	goto_if_eq NewLab_EventScript_Birch_17
-# 92 "data/maps/NewLab/scripts.pory"
+# 94 "data/maps/NewLab/scripts.pory"
 	msgbox NewLab_EventScript_Birch_Text_3, MSGBOX_NPC
 	goto NewLab_EventScript_Birch_1
 
 NewLab_EventScript_Birch_14:
-# 86 "data/maps/NewLab/scripts.pory"
+# 88 "data/maps/NewLab/scripts.pory"
 	goto_if_unset FLAG_SYS_NATIONAL_DEX, NewLab_EventScript_Birch_12
 	goto NewLab_EventScript_Birch_13
 
 NewLab_EventScript_Birch_17:
-# 89 "data/maps/NewLab/scripts.pory"
+# 91 "data/maps/NewLab/scripts.pory"
 	call UpgradeNationalDex
 	goto NewLab_EventScript_Birch_1
 
 
 StarterFade::
-# 103 "data/maps/NewLab/scripts.pory"
-	fadescreen FADE_TO_BLACK
-# 104 "data/maps/NewLab/scripts.pory"
-	delay 20
 # 105 "data/maps/NewLab/scripts.pory"
+	fadescreen FADE_TO_BLACK
+# 106 "data/maps/NewLab/scripts.pory"
+	delay 20
+# 107 "data/maps/NewLab/scripts.pory"
 	fadescreen FADE_FROM_BLACK
 	return
 
 
 NewLab_EventScript_PokeballOne::
-# 110 "data/maps/NewLab/scripts.pory"
-	lockall
-# 111 "data/maps/NewLab/scripts.pory"
-	setvar VAR_TEMP_0, 1
 # 112 "data/maps/NewLab/scripts.pory"
+	lockall
+# 113 "data/maps/NewLab/scripts.pory"
+	setvar VAR_TEMP_0, 1
+# 114 "data/maps/NewLab/scripts.pory"
 	goto_if_unset FLAG_SYS_POKEMON_GET, NewLab_EventScript_PokeballOne_2
-# 130 "data/maps/NewLab/scripts.pory"
+# 132 "data/maps/NewLab/scripts.pory"
 	msgbox NewLab_EventScript_PokeballOne_Text_0
 NewLab_EventScript_PokeballOne_1:
-# 132 "data/maps/NewLab/scripts.pory"
+# 134 "data/maps/NewLab/scripts.pory"
 	waitmessage
-# 133 "data/maps/NewLab/scripts.pory"
+# 135 "data/maps/NewLab/scripts.pory"
 	releaseall
 	end
 
 NewLab_EventScript_PokeballOne_2:
-# 113 "data/maps/NewLab/scripts.pory"
+# 115 "data/maps/NewLab/scripts.pory"
 	compare VAR_SELECT_STARTER_REGION, 0
 	goto_if_eq NewLab_EventScript_PokeballOne_5
-# 118 "data/maps/NewLab/scripts.pory"
+# 120 "data/maps/NewLab/scripts.pory"
 	compare VAR_SELECT_STARTER_REGION, 1
 	goto_if_eq NewLab_EventScript_PokeballOne_6
-# 123 "data/maps/NewLab/scripts.pory"
+# 125 "data/maps/NewLab/scripts.pory"
 	compare VAR_SELECT_STARTER_REGION, 2
 	goto_if_eq NewLab_EventScript_PokeballOne_7
 	goto NewLab_EventScript_PokeballOne_1
 
 NewLab_EventScript_PokeballOne_5:
-# 114 "data/maps/NewLab/scripts.pory"
-	bufferspeciesname STR_VAR_1, SPECIES_MUDKIP
-# 115 "data/maps/NewLab/scripts.pory"
-	setvar VAR_STARTER_CHOICE, SPECIES_MUDKIP
 # 116 "data/maps/NewLab/scripts.pory"
+	bufferspeciesname STR_VAR_1, SPECIES_MUDKIP
+# 117 "data/maps/NewLab/scripts.pory"
+	setvar VAR_STARTER_CHOICE, SPECIES_MUDKIP
+# 118 "data/maps/NewLab/scripts.pory"
 	call NewLab_EventScript_GiveStarter
 	goto NewLab_EventScript_PokeballOne_1
 
 NewLab_EventScript_PokeballOne_6:
-# 119 "data/maps/NewLab/scripts.pory"
-	bufferspeciesname STR_VAR_1, SPECIES_TOTODILE
-# 120 "data/maps/NewLab/scripts.pory"
-	setvar VAR_STARTER_CHOICE, SPECIES_TOTODILE
 # 121 "data/maps/NewLab/scripts.pory"
+	bufferspeciesname STR_VAR_1, SPECIES_TOTODILE
+# 122 "data/maps/NewLab/scripts.pory"
+	setvar VAR_STARTER_CHOICE, SPECIES_TOTODILE
+# 123 "data/maps/NewLab/scripts.pory"
 	call NewLab_EventScript_GiveStarter
 	goto NewLab_EventScript_PokeballOne_1
 
 NewLab_EventScript_PokeballOne_7:
-# 124 "data/maps/NewLab/scripts.pory"
-	bufferspeciesname STR_VAR_1, SPECIES_SQUIRTLE
-# 125 "data/maps/NewLab/scripts.pory"
-	setvar VAR_STARTER_CHOICE, SPECIES_SQUIRTLE
 # 126 "data/maps/NewLab/scripts.pory"
+	bufferspeciesname STR_VAR_1, SPECIES_SQUIRTLE
+# 127 "data/maps/NewLab/scripts.pory"
+	setvar VAR_STARTER_CHOICE, SPECIES_SQUIRTLE
+# 128 "data/maps/NewLab/scripts.pory"
 	call NewLab_EventScript_GiveStarter
 	goto NewLab_EventScript_PokeballOne_1
 
 
 NewLab_EventScript_PokeballTwo::
-# 138 "data/maps/NewLab/scripts.pory"
-	lockall
-# 139 "data/maps/NewLab/scripts.pory"
-	setvar VAR_TEMP_0, 2
 # 140 "data/maps/NewLab/scripts.pory"
+	lockall
+# 141 "data/maps/NewLab/scripts.pory"
+	setvar VAR_TEMP_0, 2
+# 142 "data/maps/NewLab/scripts.pory"
 	goto_if_unset FLAG_SYS_POKEMON_GET, NewLab_EventScript_PokeballTwo_2
-# 158 "data/maps/NewLab/scripts.pory"
+# 160 "data/maps/NewLab/scripts.pory"
 	msgbox NewLab_EventScript_PokeballOne_Text_0
 NewLab_EventScript_PokeballTwo_1:
-# 160 "data/maps/NewLab/scripts.pory"
+# 162 "data/maps/NewLab/scripts.pory"
 	waitmessage
-# 161 "data/maps/NewLab/scripts.pory"
+# 163 "data/maps/NewLab/scripts.pory"
 	releaseall
 	end
 
 NewLab_EventScript_PokeballTwo_2:
-# 141 "data/maps/NewLab/scripts.pory"
+# 143 "data/maps/NewLab/scripts.pory"
 	compare VAR_SELECT_STARTER_REGION, 0
 	goto_if_eq NewLab_EventScript_PokeballTwo_5
-# 146 "data/maps/NewLab/scripts.pory"
+# 148 "data/maps/NewLab/scripts.pory"
 	compare VAR_SELECT_STARTER_REGION, 1
 	goto_if_eq NewLab_EventScript_PokeballTwo_6
-# 151 "data/maps/NewLab/scripts.pory"
+# 153 "data/maps/NewLab/scripts.pory"
 	compare VAR_SELECT_STARTER_REGION, 2
 	goto_if_eq NewLab_EventScript_PokeballTwo_7
 	goto NewLab_EventScript_PokeballTwo_1
 
 NewLab_EventScript_PokeballTwo_5:
-# 142 "data/maps/NewLab/scripts.pory"
-	bufferspeciesname STR_VAR_1, SPECIES_TREECKO
-# 143 "data/maps/NewLab/scripts.pory"
-	setvar VAR_STARTER_CHOICE, SPECIES_TREECKO
 # 144 "data/maps/NewLab/scripts.pory"
+	bufferspeciesname STR_VAR_1, SPECIES_TREECKO
+# 145 "data/maps/NewLab/scripts.pory"
+	setvar VAR_STARTER_CHOICE, SPECIES_TREECKO
+# 146 "data/maps/NewLab/scripts.pory"
 	call NewLab_EventScript_GiveStarter
 	goto NewLab_EventScript_PokeballTwo_1
 
 NewLab_EventScript_PokeballTwo_6:
-# 147 "data/maps/NewLab/scripts.pory"
-	bufferspeciesname STR_VAR_1, SPECIES_CHIKORITA
-# 148 "data/maps/NewLab/scripts.pory"
-	setvar VAR_STARTER_CHOICE, SPECIES_CHIKORITA
 # 149 "data/maps/NewLab/scripts.pory"
+	bufferspeciesname STR_VAR_1, SPECIES_CHIKORITA
+# 150 "data/maps/NewLab/scripts.pory"
+	setvar VAR_STARTER_CHOICE, SPECIES_CHIKORITA
+# 151 "data/maps/NewLab/scripts.pory"
 	call NewLab_EventScript_GiveStarter
 	goto NewLab_EventScript_PokeballTwo_1
 
 NewLab_EventScript_PokeballTwo_7:
-# 152 "data/maps/NewLab/scripts.pory"
-	bufferspeciesname STR_VAR_1, SPECIES_BULBASAUR
-# 153 "data/maps/NewLab/scripts.pory"
-	setvar VAR_STARTER_CHOICE, SPECIES_BULBASAUR
 # 154 "data/maps/NewLab/scripts.pory"
+	bufferspeciesname STR_VAR_1, SPECIES_BULBASAUR
+# 155 "data/maps/NewLab/scripts.pory"
+	setvar VAR_STARTER_CHOICE, SPECIES_BULBASAUR
+# 156 "data/maps/NewLab/scripts.pory"
 	call NewLab_EventScript_GiveStarter
 	goto NewLab_EventScript_PokeballTwo_1
 
 
 NewLab_EventScript_PokeballThree::
-# 166 "data/maps/NewLab/scripts.pory"
-	lockall
-# 167 "data/maps/NewLab/scripts.pory"
-	setvar VAR_TEMP_0, 3
 # 168 "data/maps/NewLab/scripts.pory"
+	lockall
+# 169 "data/maps/NewLab/scripts.pory"
+	setvar VAR_TEMP_0, 3
+# 170 "data/maps/NewLab/scripts.pory"
 	goto_if_unset FLAG_SYS_POKEMON_GET, NewLab_EventScript_PokeballThree_2
-# 186 "data/maps/NewLab/scripts.pory"
+# 188 "data/maps/NewLab/scripts.pory"
 	msgbox NewLab_EventScript_PokeballOne_Text_0
 NewLab_EventScript_PokeballThree_1:
-# 188 "data/maps/NewLab/scripts.pory"
+# 190 "data/maps/NewLab/scripts.pory"
 	waitmessage
-# 189 "data/maps/NewLab/scripts.pory"
+# 191 "data/maps/NewLab/scripts.pory"
 	releaseall
 	end
 
 NewLab_EventScript_PokeballThree_2:
-# 169 "data/maps/NewLab/scripts.pory"
+# 171 "data/maps/NewLab/scripts.pory"
 	compare VAR_SELECT_STARTER_REGION, 0
 	goto_if_eq NewLab_EventScript_PokeballThree_5
-# 174 "data/maps/NewLab/scripts.pory"
+# 176 "data/maps/NewLab/scripts.pory"
 	compare VAR_SELECT_STARTER_REGION, 1
 	goto_if_eq NewLab_EventScript_PokeballThree_6
-# 179 "data/maps/NewLab/scripts.pory"
+# 181 "data/maps/NewLab/scripts.pory"
 	compare VAR_SELECT_STARTER_REGION, 2
 	goto_if_eq NewLab_EventScript_PokeballThree_7
 	goto NewLab_EventScript_PokeballThree_1
 
 NewLab_EventScript_PokeballThree_5:
-# 170 "data/maps/NewLab/scripts.pory"
-	bufferspeciesname STR_VAR_1, SPECIES_TORCHIC
-# 171 "data/maps/NewLab/scripts.pory"
-	setvar VAR_STARTER_CHOICE, SPECIES_TORCHIC
 # 172 "data/maps/NewLab/scripts.pory"
+	bufferspeciesname STR_VAR_1, SPECIES_TORCHIC
+# 173 "data/maps/NewLab/scripts.pory"
+	setvar VAR_STARTER_CHOICE, SPECIES_TORCHIC
+# 174 "data/maps/NewLab/scripts.pory"
 	call NewLab_EventScript_GiveStarter
 	goto NewLab_EventScript_PokeballThree_1
 
 NewLab_EventScript_PokeballThree_6:
-# 175 "data/maps/NewLab/scripts.pory"
-	bufferspeciesname STR_VAR_1, SPECIES_CYNDAQUIL
-# 176 "data/maps/NewLab/scripts.pory"
-	setvar VAR_STARTER_CHOICE, SPECIES_CYNDAQUIL
 # 177 "data/maps/NewLab/scripts.pory"
+	bufferspeciesname STR_VAR_1, SPECIES_CYNDAQUIL
+# 178 "data/maps/NewLab/scripts.pory"
+	setvar VAR_STARTER_CHOICE, SPECIES_CYNDAQUIL
+# 179 "data/maps/NewLab/scripts.pory"
 	call NewLab_EventScript_GiveStarter
 	goto NewLab_EventScript_PokeballThree_1
 
 NewLab_EventScript_PokeballThree_7:
-# 180 "data/maps/NewLab/scripts.pory"
-	bufferspeciesname STR_VAR_1, SPECIES_CHARMANDER
-# 181 "data/maps/NewLab/scripts.pory"
-	setvar VAR_STARTER_CHOICE, SPECIES_CHARMANDER
 # 182 "data/maps/NewLab/scripts.pory"
+	bufferspeciesname STR_VAR_1, SPECIES_CHARMANDER
+# 183 "data/maps/NewLab/scripts.pory"
+	setvar VAR_STARTER_CHOICE, SPECIES_CHARMANDER
+# 184 "data/maps/NewLab/scripts.pory"
 	call NewLab_EventScript_GiveStarter
 	goto NewLab_EventScript_PokeballThree_1
 
 
 NewLab_EventScript_GiveStarter::
-# 194 "data/maps/NewLab/scripts.pory"
-	showmonpic VAR_STARTER_CHOICE, 10, 3
-# 195 "data/maps/NewLab/scripts.pory"
-	msgbox NewLab_EventScript_GiveStarter_Text_0, MSGBOX_YESNO
 # 196 "data/maps/NewLab/scripts.pory"
+	showmonpic VAR_STARTER_CHOICE, 10, 3
+# 197 "data/maps/NewLab/scripts.pory"
+	msgbox NewLab_EventScript_GiveStarter_Text_0, MSGBOX_YESNO
+# 198 "data/maps/NewLab/scripts.pory"
 	compare VAR_RESULT, YES
 	goto_if_eq NewLab_EventScript_GiveStarter_1
-# 223 "data/maps/NewLab/scripts.pory"
+# 225 "data/maps/NewLab/scripts.pory"
 	hidemonpic
-# 224 "data/maps/NewLab/scripts.pory"
+# 226 "data/maps/NewLab/scripts.pory"
 	msgbox NewLab_NotChosen
 	return
 
 NewLab_EventScript_GiveStarter_1:
-# 197 "data/maps/NewLab/scripts.pory"
-	setflag FLAG_SYS_POKEMON_GET
-# 198 "data/maps/NewLab/scripts.pory"
-	setvar VAR_LITTLEROOT_STATE, 2
 # 199 "data/maps/NewLab/scripts.pory"
-	givemon VAR_STARTER_CHOICE, 10, ITEM_MASTER_BALL
+	setflag FLAG_SYS_POKEMON_GET
 # 200 "data/maps/NewLab/scripts.pory"
+	setvar VAR_LITTLEROOT_STATE, 2
+# 201 "data/maps/NewLab/scripts.pory"
+	givemon VAR_STARTER_CHOICE, 10, ITEM_MASTER_BALL
+# 202 "data/maps/NewLab/scripts.pory"
 	compare VAR_RESULT, MON_GIVEN_TO_PARTY
 	goto_if_eq NewLab_EventScript_GiveStarter_5
-# 207 "data/maps/NewLab/scripts.pory"
+# 209 "data/maps/NewLab/scripts.pory"
 	compare VAR_RESULT, MON_GIVEN_TO_PC
 	goto_if_eq NewLab_EventScript_GiveStarter_6
-# 216 "data/maps/NewLab/scripts.pory"
+# 218 "data/maps/NewLab/scripts.pory"
 	hidemonpic
-# 217 "data/maps/NewLab/scripts.pory"
+# 219 "data/maps/NewLab/scripts.pory"
 	msgbox NewLab_EventScript_GiveStarter_Text_3
 NewLab_EventScript_GiveStarter_4:
-# 219 "data/maps/NewLab/scripts.pory"
+# 221 "data/maps/NewLab/scripts.pory"
 	closemessage
-# 220 "data/maps/NewLab/scripts.pory"
-	call InitiatePokedexSequence
+# 222 "data/maps/NewLab/scripts.pory"
+	call InitiatePokedexSequenceAndRivalBattle
 	return
 
 NewLab_EventScript_GiveStarter_5:
-# 201 "data/maps/NewLab/scripts.pory"
-	playfanfare MUS_OBTAIN_ITEM
-# 202 "data/maps/NewLab/scripts.pory"
-	msgbox NewLab_EventScript_GiveStarter_Text_1
 # 203 "data/maps/NewLab/scripts.pory"
-	removeobject VAR_TEMP_0
+	playfanfare MUS_OBTAIN_ITEM
 # 204 "data/maps/NewLab/scripts.pory"
-	call SetBallFlag
+	msgbox NewLab_EventScript_GiveStarter_Text_1
 # 205 "data/maps/NewLab/scripts.pory"
+	removeobject VAR_TEMP_0
+# 206 "data/maps/NewLab/scripts.pory"
+	call SetBallFlag
+# 207 "data/maps/NewLab/scripts.pory"
 	call NicknamePartyMon
 	goto NewLab_EventScript_GiveStarter_4
 
 NewLab_EventScript_GiveStarter_6:
-# 208 "data/maps/NewLab/scripts.pory"
-	playfanfare MUS_OBTAIN_ITEM
-# 209 "data/maps/NewLab/scripts.pory"
-	msgbox NewLab_EventScript_GiveStarter_Text_1
 # 210 "data/maps/NewLab/scripts.pory"
-	removeobject VAR_TEMP_0
+	playfanfare MUS_OBTAIN_ITEM
 # 211 "data/maps/NewLab/scripts.pory"
-	call SetBallFlag
+	msgbox NewLab_EventScript_GiveStarter_Text_1
 # 212 "data/maps/NewLab/scripts.pory"
-	call NicknameBoxMon
+	removeobject VAR_TEMP_0
 # 213 "data/maps/NewLab/scripts.pory"
+	call SetBallFlag
+# 214 "data/maps/NewLab/scripts.pory"
+	call NicknameBoxMon
+# 215 "data/maps/NewLab/scripts.pory"
 	msgbox NewLab_EventScript_GiveStarter_Text_2
 	goto NewLab_EventScript_GiveStarter_4
 
 
 SetBallFlag::
-# 230 "data/maps/NewLab/scripts.pory"
+# 232 "data/maps/NewLab/scripts.pory"
 	compare VAR_TEMP_0, 1
 	goto_if_eq SetBallFlag_2
-# 234 "data/maps/NewLab/scripts.pory"
+# 236 "data/maps/NewLab/scripts.pory"
 	compare VAR_TEMP_0, 2
 	goto_if_eq SetBallFlag_5
-# 238 "data/maps/NewLab/scripts.pory"
+# 240 "data/maps/NewLab/scripts.pory"
 	compare VAR_TEMP_0, 3
 	goto_if_eq SetBallFlag_7
 	return
 
 SetBallFlag_2:
-# 231 "data/maps/NewLab/scripts.pory"
+# 233 "data/maps/NewLab/scripts.pory"
 	setflag STARTER_BALL_ONE
 	return
 
 SetBallFlag_5:
-# 235 "data/maps/NewLab/scripts.pory"
+# 237 "data/maps/NewLab/scripts.pory"
 	setflag STARTER_BALL_TWO
 	return
 
 SetBallFlag_7:
-# 239 "data/maps/NewLab/scripts.pory"
+# 241 "data/maps/NewLab/scripts.pory"
 	setflag STARTER_BALL_THREE
 	return
 
 
 NicknamePartyMon::
-# 245 "data/maps/NewLab/scripts.pory"
-	msgbox NicknamePartyMon_Text_0, MSGBOX_YESNO
-# 246 "data/maps/NewLab/scripts.pory"
-	hidemonpic
 # 247 "data/maps/NewLab/scripts.pory"
+	msgbox NicknamePartyMon_Text_0, MSGBOX_YESNO
+# 248 "data/maps/NewLab/scripts.pory"
+	hidemonpic
+# 249 "data/maps/NewLab/scripts.pory"
 	compare VAR_RESULT, YES
 	goto_if_eq NicknamePartyMon_1
 	return
 
 NicknamePartyMon_1:
-# 248 "data/maps/NewLab/scripts.pory"
+# 250 "data/maps/NewLab/scripts.pory"
 	call Common_EventScript_GetGiftMonPartySlot
-# 249 "data/maps/NewLab/scripts.pory"
+# 251 "data/maps/NewLab/scripts.pory"
 	call Common_EventScript_NameReceivedPartyMon
 	return
 
 
 NicknameBoxMon::
-# 256 "data/maps/NewLab/scripts.pory"
-	msgbox NicknamePartyMon_Text_0, MSGBOX_YESNO
-# 257 "data/maps/NewLab/scripts.pory"
-	hidemonpic
 # 258 "data/maps/NewLab/scripts.pory"
+	msgbox NicknamePartyMon_Text_0, MSGBOX_YESNO
+# 259 "data/maps/NewLab/scripts.pory"
+	hidemonpic
+# 260 "data/maps/NewLab/scripts.pory"
 	compare VAR_RESULT, YES
 	goto_if_eq NicknameBoxMon_2
 NicknameBoxMon_1:
-# 261 "data/maps/NewLab/scripts.pory"
+# 263 "data/maps/NewLab/scripts.pory"
 	msgbox NicknameBoxMon_Text_0
 	return
 
 NicknameBoxMon_2:
-# 259 "data/maps/NewLab/scripts.pory"
+# 261 "data/maps/NewLab/scripts.pory"
 	call Common_EventScript_NameReceivedBoxMon
 	goto NicknameBoxMon_1
 
 
-InitiatePokedexSequence::
-# 269 "data/maps/NewLab/scripts.pory"
-	lock
-# 270 "data/maps/NewLab/scripts.pory"
-	delay 20
+InitiatePokedexSequenceAndRivalBattle::
 # 271 "data/maps/NewLab/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, TurnToProf
+	lock
 # 272 "data/maps/NewLab/scripts.pory"
-	compare VAR_TEMP_0, 1
-	goto_if_eq InitiatePokedexSequence_2
-InitiatePokedexSequence_1:
-# 275 "data/maps/NewLab/scripts.pory"
-	compare VAR_TEMP_0, 2
-	goto_if_eq InitiatePokedexSequence_5
-InitiatePokedexSequence_4:
-# 278 "data/maps/NewLab/scripts.pory"
-	compare VAR_TEMP_0, 3
-	goto_if_eq InitiatePokedexSequence_8
-InitiatePokedexSequence_7:
-# 281 "data/maps/NewLab/scripts.pory"
-	waitmovement 0
-# 282 "data/maps/NewLab/scripts.pory"
 	delay 20
-# 283 "data/maps/NewLab/scripts.pory"
+# 273 "data/maps/NewLab/scripts.pory"
+	applymovement OBJ_EVENT_ID_PLAYER, TurnToProf
+# 274 "data/maps/NewLab/scripts.pory"
+	compare VAR_TEMP_0, 1
+	goto_if_eq InitiatePokedexSequenceAndRivalBattle_2
+InitiatePokedexSequenceAndRivalBattle_1:
+# 278 "data/maps/NewLab/scripts.pory"
+	compare VAR_TEMP_0, 2
+	goto_if_eq InitiatePokedexSequenceAndRivalBattle_5
+InitiatePokedexSequenceAndRivalBattle_4:
+# 282 "data/maps/NewLab/scripts.pory"
+	compare VAR_TEMP_0, 3
+	goto_if_eq InitiatePokedexSequenceAndRivalBattle_8
+InitiatePokedexSequenceAndRivalBattle_7:
+# 286 "data/maps/NewLab/scripts.pory"
+	waitmovement 0
+# 287 "data/maps/NewLab/scripts.pory"
+	delay 20
+# 288 "data/maps/NewLab/scripts.pory"
 	call GivePokedex
-# 284 "data/maps/NewLab/scripts.pory"
+# 289 "data/maps/NewLab/scripts.pory"
+	addobject 5
+# 290 "data/maps/NewLab/scripts.pory"
+	call RivalBattleTrigger
+# 291 "data/maps/NewLab/scripts.pory"
 	release
 	return
 
-InitiatePokedexSequence_2:
-# 273 "data/maps/NewLab/scripts.pory"
-	applymovement 4, MoveBallOne
-	goto InitiatePokedexSequence_1
-
-InitiatePokedexSequence_5:
+InitiatePokedexSequenceAndRivalBattle_2:
+# 275 "data/maps/NewLab/scripts.pory"
+	setobjectxy 5, 5, 11
 # 276 "data/maps/NewLab/scripts.pory"
-	applymovement 4, MoveBallTwo
-	goto InitiatePokedexSequence_4
+	applymovement 4, MoveBallOne
+	goto InitiatePokedexSequenceAndRivalBattle_1
 
-InitiatePokedexSequence_8:
+InitiatePokedexSequenceAndRivalBattle_5:
 # 279 "data/maps/NewLab/scripts.pory"
+	setobjectxy 5, 6, 11
+# 280 "data/maps/NewLab/scripts.pory"
+	applymovement 4, MoveBallTwo
+	goto InitiatePokedexSequenceAndRivalBattle_4
+
+InitiatePokedexSequenceAndRivalBattle_8:
+# 283 "data/maps/NewLab/scripts.pory"
+	setobjectxy 5, 7, 11
+# 284 "data/maps/NewLab/scripts.pory"
 	applymovement 4, MoveBallThree
-	goto InitiatePokedexSequence_7
+	goto InitiatePokedexSequenceAndRivalBattle_7
 
 
 GivePokedex::
-# 289 "data/maps/NewLab/scripts.pory"
-	lock
-# 290 "data/maps/NewLab/scripts.pory"
-	msgbox TakePokedex, MSGBOX_DEFAULT
-# 291 "data/maps/NewLab/scripts.pory"
-	playfanfare MUS_OBTAIN_ITEM
-# 292 "data/maps/NewLab/scripts.pory"
-	message GivePokedex_Text_0
-# 293 "data/maps/NewLab/scripts.pory"
-	waitfanfare
-# 294 "data/maps/NewLab/scripts.pory"
-	closemessage
-# 295 "data/maps/NewLab/scripts.pory"
-	setflag FLAG_SYS_POKEDEX_GET
 # 296 "data/maps/NewLab/scripts.pory"
-	setflag FLAG_ADVENTURE_STARTED
+	lock
 # 297 "data/maps/NewLab/scripts.pory"
-	special SetUnlockedPokedexFlags
+	msgbox TakePokedex, MSGBOX_DEFAULT
 # 298 "data/maps/NewLab/scripts.pory"
-	setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH
+	playfanfare MUS_OBTAIN_ITEM
 # 299 "data/maps/NewLab/scripts.pory"
-	setvar VAR_CABLE_CLUB_TUTORIAL_STATE, 1
+	message GivePokedex_Text_0
 # 300 "data/maps/NewLab/scripts.pory"
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_ExplainPokedex, MSGBOX_DEFAULT
+	waitfanfare
 # 301 "data/maps/NewLab/scripts.pory"
-	msgbox GivePokedex_Text_1, MSGBOX_DEFAULT
+	closemessage
 # 302 "data/maps/NewLab/scripts.pory"
-	giveitem ITEM_POKE_BALL, 10
+	setflag FLAG_SYS_POKEDEX_GET
 # 303 "data/maps/NewLab/scripts.pory"
-	msgbox GivePokedex_Text_2, MSGBOX_DEFAULT
+	setflag FLAG_ADVENTURE_STARTED
 # 304 "data/maps/NewLab/scripts.pory"
-	waitmessage
+	special SetUnlockedPokedexFlags
 # 305 "data/maps/NewLab/scripts.pory"
+	setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH
+# 306 "data/maps/NewLab/scripts.pory"
+	setvar VAR_CABLE_CLUB_TUTORIAL_STATE, 1
+# 307 "data/maps/NewLab/scripts.pory"
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_ExplainPokedex, MSGBOX_DEFAULT
+# 308 "data/maps/NewLab/scripts.pory"
+	msgbox GivePokedex_Text_1, MSGBOX_DEFAULT
+# 309 "data/maps/NewLab/scripts.pory"
+	giveitem ITEM_POKE_BALL, 10
+# 310 "data/maps/NewLab/scripts.pory"
+	msgbox GivePokedex_Text_2, MSGBOX_DEFAULT
+# 311 "data/maps/NewLab/scripts.pory"
+	waitmessage
+# 312 "data/maps/NewLab/scripts.pory"
 	release
 	return
 
 
 UpgradeNationalDex::
-# 310 "data/maps/NewLab/scripts.pory"
-	lock
-# 311 "data/maps/NewLab/scripts.pory"
-	playfanfare MUS_OBTAIN_ITEM
-# 312 "data/maps/NewLab/scripts.pory"
-	message LittlerootTown_ProfessorBirchsLab_Text_PokedexUpgradedToNational
-# 313 "data/maps/NewLab/scripts.pory"
-	waitmessage
-# 314 "data/maps/NewLab/scripts.pory"
-	waitfanfare
-# 315 "data/maps/NewLab/scripts.pory"
-	setflag FLAG_SYS_NATIONAL_DEX
-# 316 "data/maps/NewLab/scripts.pory"
-	special EnableNationalPokedex
 # 317 "data/maps/NewLab/scripts.pory"
-	closemessage
+	lock
 # 318 "data/maps/NewLab/scripts.pory"
+	playfanfare MUS_OBTAIN_ITEM
+# 319 "data/maps/NewLab/scripts.pory"
+	message LittlerootTown_ProfessorBirchsLab_Text_PokedexUpgradedToNational
+# 320 "data/maps/NewLab/scripts.pory"
+	waitmessage
+# 321 "data/maps/NewLab/scripts.pory"
+	waitfanfare
+# 322 "data/maps/NewLab/scripts.pory"
+	setflag FLAG_SYS_NATIONAL_DEX
+# 323 "data/maps/NewLab/scripts.pory"
+	special EnableNationalPokedex
+# 324 "data/maps/NewLab/scripts.pory"
+	closemessage
+# 325 "data/maps/NewLab/scripts.pory"
 	release
 	return
 
 
-# 322 "data/maps/NewLab/scripts.pory"
-MoveBallOne:
-# 323 "data/maps/NewLab/scripts.pory"
-	walk_left
-# 323 "data/maps/NewLab/scripts.pory"
-	walk_left
-	step_end
-
-# 325 "data/maps/NewLab/scripts.pory"
-MoveBallTwo:
-# 326 "data/maps/NewLab/scripts.pory"
-	walk_left
-	step_end
-
-# 328 "data/maps/NewLab/scripts.pory"
-MoveBallThree:
 # 329 "data/maps/NewLab/scripts.pory"
+MoveBallOne:
+# 330 "data/maps/NewLab/scripts.pory"
+	walk_left
+# 330 "data/maps/NewLab/scripts.pory"
+	walk_left
+	step_end
+
+# 332 "data/maps/NewLab/scripts.pory"
+MoveBallTwo:
+# 333 "data/maps/NewLab/scripts.pory"
+	walk_left
+	step_end
+
+# 335 "data/maps/NewLab/scripts.pory"
+MoveBallThree:
+# 336 "data/maps/NewLab/scripts.pory"
 	face_left
 	step_end
 
-# 331 "data/maps/NewLab/scripts.pory"
+# 338 "data/maps/NewLab/scripts.pory"
 TurnToProf:
-# 332 "data/maps/NewLab/scripts.pory"
+# 339 "data/maps/NewLab/scripts.pory"
 	face_right
 	step_end
 
 DontTouchThat::
-# 342 "data/maps/NewLab/scripts.pory"
+# 349 "data/maps/NewLab/scripts.pory"
 	lockall
-# 343 "data/maps/NewLab/scripts.pory"
+# 350 "data/maps/NewLab/scripts.pory"
 	msgbox DontTouchThat_Text_0
-# 344 "data/maps/NewLab/scripts.pory"
+# 351 "data/maps/NewLab/scripts.pory"
 	applymovement OBJ_EVENT_ID_PLAYER, MoveAwayFromThere
-# 345 "data/maps/NewLab/scripts.pory"
+# 352 "data/maps/NewLab/scripts.pory"
 	waitmovement 0
-# 346 "data/maps/NewLab/scripts.pory"
+# 353 "data/maps/NewLab/scripts.pory"
 	releaseall
 	return
 
 
-# 349 "data/maps/NewLab/scripts.pory"
+# 356 "data/maps/NewLab/scripts.pory"
 MoveAwayFromThere:
-# 350 "data/maps/NewLab/scripts.pory"
+# 357 "data/maps/NewLab/scripts.pory"
 	walk_left
-# 350 "data/maps/NewLab/scripts.pory"
+# 357 "data/maps/NewLab/scripts.pory"
 	walk_left
 	step_end
 
+RivalBattleTrigger::
+# 363 "data/maps/NewLab/scripts.pory"
+	checkplayergender
+# 364 "data/maps/NewLab/scripts.pory"
+	goto_if_eq VAR_RESULT, MALE, MayBattle
+# 365 "data/maps/NewLab/scripts.pory"
+	goto_if_eq VAR_RESULT, FEMALE, BrendanBattle
+	return
+
+
+MayBattle::
+# 369 "data/maps/NewLab/scripts.pory"
+	playbgm MUS_ENCOUNTER_MAY, TRUE
+# 370 "data/maps/NewLab/scripts.pory"
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_SOUTH
+# 371 "data/maps/NewLab/scripts.pory"
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+# 372 "data/maps/NewLab/scripts.pory"
+	waitmovement 0
+# 373 "data/maps/NewLab/scripts.pory"
+	applymovement 5, RivalMoveUp
+# 374 "data/maps/NewLab/scripts.pory"
+	waitmovement 0
+# 375 "data/maps/NewLab/scripts.pory"
+	trainerbattle_single TRAINER_MAY_ROUTE_103_TREECKO, RivalIntro, Route103_Text_MayDefeated, RivalBattleOver
+	end
+
+
+BrendanBattle::
+# 380 "data/maps/NewLab/scripts.pory"
+	playbgm MUS_ENCOUNTER_BRENDAN, TRUE
+# 381 "data/maps/NewLab/scripts.pory"
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_SOUTH
+# 382 "data/maps/NewLab/scripts.pory"
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+# 383 "data/maps/NewLab/scripts.pory"
+	waitmovement 0
+# 384 "data/maps/NewLab/scripts.pory"
+	applymovement 5, RivalMoveUp
+# 385 "data/maps/NewLab/scripts.pory"
+	waitmovement 0
+# 386 "data/maps/NewLab/scripts.pory"
+	trainerbattle_single TRAINER_BRENDAN_ROUTE_103_TREECKO, RivalIntro, Route103_Text_BrendanDefeated, RivalBattleOver
+	end
+
+
+# 390 "data/maps/NewLab/scripts.pory"
+RivalMoveUp:
+# 391 "data/maps/NewLab/scripts.pory"
+	walk_up
+# 391 "data/maps/NewLab/scripts.pory"
+	walk_up
+# 391 "data/maps/NewLab/scripts.pory"
+	walk_up
+# 391 "data/maps/NewLab/scripts.pory"
+	walk_up
+	step_end
+
+# 394 "data/maps/NewLab/scripts.pory"
+RivalLeave:
+# 395 "data/maps/NewLab/scripts.pory"
+	walk_down
+# 395 "data/maps/NewLab/scripts.pory"
+	walk_down
+# 395 "data/maps/NewLab/scripts.pory"
+	walk_down
+# 395 "data/maps/NewLab/scripts.pory"
+	walk_down
+# 395 "data/maps/NewLab/scripts.pory"
+	walk_down
+	step_end
+
+RivalBattleOver::
+# 399 "data/maps/NewLab/scripts.pory"
+	lockall
+# 400 "data/maps/NewLab/scripts.pory"
+	msgbox RivalBattleOver_Text_0
+# 401 "data/maps/NewLab/scripts.pory"
+	applymovement 5, RivalLeave
+# 402 "data/maps/NewLab/scripts.pory"
+	waitmovement 0
+# 403 "data/maps/NewLab/scripts.pory"
+	setflag RIVAL_STARTER_BATTLE
+# 404 "data/maps/NewLab/scripts.pory"
+	setvar VAR_LITTLEROOT_STATE, 3
+# 405 "data/maps/NewLab/scripts.pory"
+	removeobject 5
+# 406 "data/maps/NewLab/scripts.pory"
+	releaseall
+	return
+
+
 StopLeaving_Text_0:
-# 53 "data/maps/NewLab/scripts.pory"
+# 55 "data/maps/NewLab/scripts.pory"
 	.string "You Need To Choose a Pokemon$"
 
 NewLab_EventScript_Birch_Text_0:
-# 66 "data/maps/NewLab/scripts.pory"
+# 68 "data/maps/NewLab/scripts.pory"
 	.string "Would you like to see more?$"
 
 NewLab_EventScript_Birch_Text_1:
-# 81 "data/maps/NewLab/scripts.pory"
+# 83 "data/maps/NewLab/scripts.pory"
 	.string "Choose wisely...$"
 
 NewLab_EventScript_Birch_Text_2:
-# 87 "data/maps/NewLab/scripts.pory"
+# 89 "data/maps/NewLab/scripts.pory"
 	.string "Do you want to upgrade to the National\n"
 	.string "Dex?$"
 
 NewLab_EventScript_Birch_Text_3:
-# 92 "data/maps/NewLab/scripts.pory"
+# 94 "data/maps/NewLab/scripts.pory"
 	.string "Take care of your Pokemon$"
 
 NewLab_EventScript_PokeballOne_Text_0:
-# 130 "data/maps/NewLab/scripts.pory"
+# 132 "data/maps/NewLab/scripts.pory"
 	.string "Don't Take Another$"
 
 NewLab_EventScript_GiveStarter_Text_0:
-# 195 "data/maps/NewLab/scripts.pory"
+# 197 "data/maps/NewLab/scripts.pory"
 	.string "Do you want to choose {STR_VAR_1}?$"
 
 NewLab_EventScript_GiveStarter_Text_1:
-# 202 "data/maps/NewLab/scripts.pory"
+# 204 "data/maps/NewLab/scripts.pory"
 	.string "Recieved {STR_VAR_1}$"
 
 NewLab_EventScript_GiveStarter_Text_2:
-# 213 "data/maps/NewLab/scripts.pory"
+# 215 "data/maps/NewLab/scripts.pory"
 	.string "Transferred {STR_VAR_1} to PC$"
 
 NewLab_EventScript_GiveStarter_Text_3:
-# 217 "data/maps/NewLab/scripts.pory"
+# 219 "data/maps/NewLab/scripts.pory"
 	.string "No More Room For Pokemon$"
 
 NicknamePartyMon_Text_0:
-# 245 "data/maps/NewLab/scripts.pory"
+# 247 "data/maps/NewLab/scripts.pory"
 	.string "Give a nickname?$"
 
 NicknameBoxMon_Text_0:
-# 261 "data/maps/NewLab/scripts.pory"
+# 263 "data/maps/NewLab/scripts.pory"
 	.string "Transferred to PC$"
 
 GivePokedex_Text_0:
-# 292 "data/maps/NewLab/scripts.pory"
+# 299 "data/maps/NewLab/scripts.pory"
 	.string "{PLAYER} received the POKéDEX!$"
 
 GivePokedex_Text_1:
-# 301 "data/maps/NewLab/scripts.pory"
+# 308 "data/maps/NewLab/scripts.pory"
 	.string "Also take these with you$"
 
 GivePokedex_Text_2:
-# 303 "data/maps/NewLab/scripts.pory"
+# 310 "data/maps/NewLab/scripts.pory"
 	.string "These allow you to catch your own\n"
 	.string "Pokemon in tall grass so you can collect\l"
 	.string "research for the Pokedex$"
 
 DontTouchThat_Text_0:
-# 343 "data/maps/NewLab/scripts.pory"
+# 350 "data/maps/NewLab/scripts.pory"
 	.string "DONT TOUCH THAT$"
 
+RivalBattleOver_Text_0:
+# 400 "data/maps/NewLab/scripts.pory"
+	.string "Well that wasn't fun. I'll beat you next\n"
+	.string "time.$"
+
 BeginAdventureText::
-# 41 "data/maps/NewLab/scripts.pory"
+# 43 "data/maps/NewLab/scripts.pory"
 	.string "{COLOR RED}{SHADOW LIGHT_RED}Birch:{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY} Hello {PLAYER}, my name is Prof Birch\n"
 	.string "This is my lab.\p"
 	.string "Today is the day that you will be\n"
@@ -717,11 +828,15 @@ BeginAdventureText::
 	.string "come and talk to me.\n$"
 
 NewLab_NotChosen::
-# 264 "data/maps/NewLab/scripts.pory"
+# 266 "data/maps/NewLab/scripts.pory"
 	.string "You did not choose the Pokemon$"
 
 TakePokedex::
-# 335 "data/maps/NewLab/scripts.pory"
+# 342 "data/maps/NewLab/scripts.pory"
 	.string "Here, {PLAYER}, I ordered this for my\n"
 	.string "research, but I think you should have\l"
 	.string "this POKéDEX.$"
+
+RivalIntro::
+# 409 "data/maps/NewLab/scripts.pory"
+	.string "We'll See if you have what it takes!$"
