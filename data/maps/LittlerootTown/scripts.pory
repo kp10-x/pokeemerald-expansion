@@ -1220,3 +1220,9 @@ script LittlerootTown_Trigger_BlockPath{
 movement StopPlayer{
 	walk_down
 }
+
+script LittlerootTown_FindIceBeam{
+	finditem(ITEM_TM_ICE_BEAM)
+	setflag(FLAG_TM_ICE_BEAM)
+	end
+}

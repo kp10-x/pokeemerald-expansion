@@ -34,6 +34,7 @@
 #include "save.h"
 #include "scanline_effect.h"
 #include "script.h"
+#include "script_pokemon_util.h"
 #include "sound.h"
 #include "start_menu.h"
 #include "strings.h"
@@ -48,6 +49,7 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 
+extern u8 TeleportMenu[];
 // Menu actions
 enum
 {
@@ -57,6 +59,7 @@ enum
     MENU_ACTION_POKENAV,
     MENU_ACTION_PLAYER,
     MENU_ACTION_SAVE,
+    MENU_ACTION_TELEPORT,
     MENU_ACTION_OPTION,
     MENU_ACTION_EXIT,
     MENU_ACTION_RETIRE_SAFARI,
@@ -99,6 +102,7 @@ static bool8 StartMenuBagCallback(void);
 static bool8 StartMenuPokeNavCallback(void);
 static bool8 StartMenuPlayerNameCallback(void);
 static bool8 StartMenuSaveCallback(void);
+static bool8 StartMenuTeleportCallback(void);
 static bool8 StartMenuOptionCallback(void);
 static bool8 StartMenuExitCallback(void);
 static bool8 StartMenuSafariZoneRetireCallback(void);
@@ -192,6 +196,7 @@ static const struct MenuAction sStartMenuItems[] =
     [MENU_ACTION_POKENAV]         = {gText_MenuPokenav, {.u8_void = StartMenuPokeNavCallback}},
     [MENU_ACTION_PLAYER]          = {gText_MenuPlayer,  {.u8_void = StartMenuPlayerNameCallback}},
     [MENU_ACTION_SAVE]            = {gText_MenuSave,    {.u8_void = StartMenuSaveCallback}},
+    [MENU_ACTION_TELEPORT]        = {gText_MenuTeleport,{.u8_void = StartMenuTeleportCallback}},  
     [MENU_ACTION_OPTION]          = {gText_MenuOption,  {.u8_void = StartMenuOptionCallback}},
     [MENU_ACTION_EXIT]            = {gText_MenuExit,    {.u8_void = StartMenuExitCallback}},
     [MENU_ACTION_RETIRE_SAFARI]   = {gText_MenuRetire,  {.u8_void = StartMenuSafariZoneRetireCallback}},
@@ -342,6 +347,7 @@ static void BuildNormalStartMenu(void)
     }
 
     AddStartMenuAction(MENU_ACTION_PLAYER);
+    AddStartMenuAction(MENU_ACTION_TELEPORT);
     AddStartMenuAction(MENU_ACTION_SAVE);
     AddStartMenuAction(MENU_ACTION_OPTION);
     AddStartMenuAction(MENU_ACTION_EXIT);
@@ -642,6 +648,7 @@ static bool8 HandleStartMenuInput(void)
         gMenuCallback = sStartMenuItems[sCurrentStartMenuActions[sStartMenuCursorPos]].func.u8_void;
 
         if (gMenuCallback != StartMenuSaveCallback
+            && gMenuCallback != StartMenuTeleportCallback
             && gMenuCallback != StartMenuExitCallback
             && gMenuCallback != StartMenuDebugCallback
             && gMenuCallback != StartMenuSafariZoneRetireCallback
@@ -753,6 +760,14 @@ static bool8 StartMenuSaveCallback(void)
     gMenuCallback = SaveStartCallback; // Display save menu
 
     return FALSE;
+}
+
+static bool8 StartMenuTeleportCallback(void)
+{
+    RemoveExtraStartMenuWindows();
+    HideStartMenu(); // Hide start menu
+    ScriptContext_SetupScript(TeleportMenu);
+    return TRUE;
 }
 
 static bool8 StartMenuOptionCallback(void)

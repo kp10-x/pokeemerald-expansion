@@ -1073,3 +1073,6 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/LittlerootTown_Pokemart/scripts.inc"
 
 	.include "data/maps/LittlerootTown_Pokecenter/scripts.inc"
+
+	.include "data/scripts/teleport_menu.inc"
+

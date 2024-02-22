@@ -2401,6 +2401,14 @@ StopPlayer:
 	walk_down
 	step_end
 
+LittlerootTown_FindIceBeam::
+# 1225 "data/maps/LittlerootTown/scripts.pory"
+	finditem ITEM_TM_ICE_BEAM
+# 1226 "data/maps/LittlerootTown/scripts.pory"
+	setflag FLAG_TM_ICE_BEAM
+	end
+
+
 LittlerootTown_EventScript_MemeSign_Text_0:
 # 1026 "data/maps/LittlerootTown/scripts.pory"
 	.string "Emyl go get laid!$"
