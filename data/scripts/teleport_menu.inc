@@ -17,3 +17,12 @@ Teleport_No::
     release
     end
 
+PokeVialHealScript::
+    special HealPlayerParty
+    msgbox PokeVialText, MSGBOX_DEFAULT
+    releaseall
+    end
+
+PokeVialText::
+    .string "Your party was magically cured.$"
+

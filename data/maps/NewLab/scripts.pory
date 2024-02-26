@@ -308,6 +308,8 @@ script GivePokedex{
     msgbox("Also take these with you", MSGBOX_DEFAULT)
     giveitem(ITEM_POKE_BALL, 10)
     msgbox(format("These allow you to catch your own Pokemon in tall grass so you can collect research for the Pokedex"), MSGBOX_DEFAULT)
+    msgbox(format("Take this brand new item as well and see the magic for yourself!"))
+    giveitem(ITEM_POKE_VIAL)
     waitmessage
     release
 	return

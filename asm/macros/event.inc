@@ -2031,4 +2031,4 @@
     setvar VAR_TEMP_1, \evObjId
     specialvar \dest, Script_GetObjectFacingDirection
     .endm
-	
+
