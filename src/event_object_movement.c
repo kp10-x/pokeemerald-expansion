@@ -8981,3 +8981,9 @@ bool8 MovementAction_EmoteDoubleExclamationMark_Step0(struct ObjectEvent *object
     sprite->sActionFuncId = 1;
     return TRUE;
 }
+
+u8 Script_GetObjectFacingDirection(void)
+{
+    u8 objId = GetObjectEventIdByLocalId(VarGet(VAR_TEMP_1));
+    return gObjectEvents[objId].facingDirection;
+}

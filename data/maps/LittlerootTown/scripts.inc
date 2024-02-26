@@ -2270,6 +2270,52 @@ LittlerootTown_FindIceBeam::
 	end
 
 
+Littleroot_GetDirEventSign::
+# 1231 "data/maps/LittlerootTown/scripts.pory"
+	getobjectfacingdirection OBJ_EVENT_ID_PLAYER, VAR_TEMP_1
+# 1232 "data/maps/LittlerootTown/scripts.pory"
+	goto_if_eq VAR_TEMP_1, DIR_NORTH, DirSign_North
+# 1233 "data/maps/LittlerootTown/scripts.pory"
+	goto_if_eq VAR_TEMP_1, DIR_SOUTH, DirSign_South
+# 1234 "data/maps/LittlerootTown/scripts.pory"
+	goto_if_eq VAR_TEMP_1, DIR_WEST, DirSign_West
+# 1235 "data/maps/LittlerootTown/scripts.pory"
+	goto_if_eq VAR_TEMP_1, DIR_EAST, DirSign_East
+	end
+
+
+DirSign_North::
+# 1240 "data/maps/LittlerootTown/scripts.pory"
+	msgbox DirSign_North_Text_0, MSGBOX_DEFAULT
+# 1241 "data/maps/LittlerootTown/scripts.pory"
+	release
+	end
+
+
+DirSign_South::
+# 1245 "data/maps/LittlerootTown/scripts.pory"
+	msgbox DirSign_South_Text_0, MSGBOX_DEFAULT
+# 1246 "data/maps/LittlerootTown/scripts.pory"
+	release
+	end
+
+
+DirSign_West::
+# 1250 "data/maps/LittlerootTown/scripts.pory"
+	msgbox DirSign_West_Text_0, MSGBOX_DEFAULT
+# 1251 "data/maps/LittlerootTown/scripts.pory"
+	release
+	end
+
+
+DirSign_East::
+# 1255 "data/maps/LittlerootTown/scripts.pory"
+	msgbox DirSign_East_Text_0, MSGBOX_DEFAULT
+# 1256 "data/maps/LittlerootTown/scripts.pory"
+	release
+	end
+
+
 LittlerootTown_EventScript_MemeSign_Text_0:
 # 1026 "data/maps/LittlerootTown/scripts.pory"
 	.string "Emyl go get laid!$"
@@ -2289,3 +2335,19 @@ RanAway_Text_1:
 LittlerootTown_Trigger_BlockPath_Text_0:
 # 1214 "data/maps/LittlerootTown/scripts.pory"
 	.string "You Don't Have a Pokemon Yet$"
+
+DirSign_North_Text_0:
+# 1240 "data/maps/LittlerootTown/scripts.pory"
+	.string "The Player is facing North!$"
+
+DirSign_South_Text_0:
+# 1245 "data/maps/LittlerootTown/scripts.pory"
+	.string "The Player is facing South!$"
+
+DirSign_West_Text_0:
+# 1250 "data/maps/LittlerootTown/scripts.pory"
+	.string "The Player is facing West!$"
+
+DirSign_East_Text_0:
+# 1255 "data/maps/LittlerootTown/scripts.pory"
+	.string "The Player is facing East!$"

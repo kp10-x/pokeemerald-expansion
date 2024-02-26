@@ -4,8 +4,8 @@ mapscripts NewLab_MapScripts {
  
 script NewLab_EventScript_BallDefault{
     setvar(VAR_SELECT_STARTER_REGION, 0)
-    call(Common_EventScript_SetupRivalGfxId)
     removeobject(5)
+    call(Common_EventScript_SetupRivalGfxId)
 }
 
 script Start_StarterChoose_Sequence{

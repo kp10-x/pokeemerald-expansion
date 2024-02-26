@@ -1226,3 +1226,33 @@ script LittlerootTown_FindIceBeam{
 	setflag(FLAG_TM_ICE_BEAM)
 	end
 }
+
+script Littleroot_GetDirEventSign{
+	getobjectfacingdirection(OBJ_EVENT_ID_PLAYER, VAR_TEMP_1)
+	goto_if_eq(VAR_TEMP_1, DIR_NORTH, DirSign_North)
+	goto_if_eq(VAR_TEMP_1, DIR_SOUTH, DirSign_South)
+    goto_if_eq(VAR_TEMP_1, DIR_WEST, DirSign_West)
+    goto_if_eq(VAR_TEMP_1, DIR_EAST, DirSign_East)
+	end
+}
+
+script DirSign_North{
+	msgbox("The Player is facing North!$", MSGBOX_DEFAULT)
+    release
+    end
+}
+script DirSign_South{
+	msgbox("The Player is facing South!$", MSGBOX_DEFAULT)
+    release
+    end
+}
+script DirSign_West{
+	msgbox("The Player is facing West!$", MSGBOX_DEFAULT)
+    release
+    end
+}
+script DirSign_East{
+	msgbox("The Player is facing East!$", MSGBOX_DEFAULT)
+    release
+    end
+}

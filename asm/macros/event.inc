@@ -2025,3 +2025,10 @@
 	callnative CreateTrainerPartyForPlayer
 	trainerbattle_no_intro \trainer2, NULL
 	.endm
+
+	 @ Gets the facing direction of a given event object and stores it in the variable \dest.
+    .macro getobjectfacingdirection evObjId:req, dest:req
+    setvar VAR_TEMP_1, \evObjId
+    specialvar \dest, Script_GetObjectFacingDirection
+    .endm
+	
