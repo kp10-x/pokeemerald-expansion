@@ -2316,6 +2316,143 @@ DirSign_East::
 	end
 
 
+# 1260 "data/maps/LittlerootTown/scripts.pory"
+
+# 1261 "data/maps/LittlerootTown/scripts.pory"
+LittlerootTown_ArchieInGameTradeSequence::
+# 1262 "data/maps/LittlerootTown/scripts.pory"
+ 
+# 1263 "data/maps/LittlerootTown/scripts.pory"
+	// Check a flag to see if the trade has already happened
+# 1264 "data/maps/LittlerootTown/scripts.pory"
+	lock
+# 1265 "data/maps/LittlerootTown/scripts.pory"
+	faceplayer
+# 1266 "data/maps/LittlerootTown/scripts.pory"
+	goto_if_set FLAG_INGAME_ARCHIE_TRADE, LittlerootTown_EventScript_TradeCompleted
+# 1267 "data/maps/LittlerootTown/scripts.pory"
+ 
+# 1268 "data/maps/LittlerootTown/scripts.pory"
+	// Buffer the trade and requested mon names and ask if you want to trade
+# 1269 "data/maps/LittlerootTown/scripts.pory"
+	setvar VAR_0x8008, INGAME_TRADE_JIRACHI
+# 1270 "data/maps/LittlerootTown/scripts.pory"
+	copyvar VAR_0x8004, VAR_0x8008
+# 1271 "data/maps/LittlerootTown/scripts.pory"
+	specialvar VAR_0x8009, GetInGameTradeSpeciesInfo
+# 1272 "data/maps/LittlerootTown/scripts.pory"
+	msgbox LittlerootTown_Text_WillingToTradeIt, MSGBOX_YESNO
+# 1273 "data/maps/LittlerootTown/scripts.pory"
+	goto_if_eq VAR_RESULT, NO, LittlerootTown_DeclineTrade
+# 1274 "data/maps/LittlerootTown/scripts.pory"
+ 
+# 1275 "data/maps/LittlerootTown/scripts.pory"
+	// Handle the selection of the requested mon from the player
+# 1276 "data/maps/LittlerootTown/scripts.pory"
+	special ChoosePartyMon
+# 1277 "data/maps/LittlerootTown/scripts.pory"
+	waitstate
+# 1278 "data/maps/LittlerootTown/scripts.pory"
+	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, LittlerootTown_DeclineTrade
+# 1279 "data/maps/LittlerootTown/scripts.pory"
+	copyvar VAR_0x8005, VAR_0x8004
+# 1280 "data/maps/LittlerootTown/scripts.pory"
+	specialvar VAR_RESULT, GetTradeSpecies 
+# 1281 "data/maps/LittlerootTown/scripts.pory"
+	goto_if_ne VAR_RESULT, VAR_0x8009, LittlerootTown_EventScript_NotRequestedMon 
+# 1282 "data/maps/LittlerootTown/scripts.pory"
+ 
+# 1283 "data/maps/LittlerootTown/scripts.pory"
+	// Perform the actual trade
+# 1284 "data/maps/LittlerootTown/scripts.pory"
+	copyvar VAR_0x8004, VAR_0x8008
+# 1285 "data/maps/LittlerootTown/scripts.pory"
+	special CreateInGameTradePokemon 
+# 1286 "data/maps/LittlerootTown/scripts.pory"
+	special DoInGameTradeScene 
+# 1287 "data/maps/LittlerootTown/scripts.pory"
+	waitstate
+# 1288 "data/maps/LittlerootTown/scripts.pory"
+ 
+# 1289 "data/maps/LittlerootTown/scripts.pory"
+	msgbox LittlerootTown_TradeThanks, MSGBOX_DEFAULT
+# 1290 "data/maps/LittlerootTown/scripts.pory"
+	setflag FLAG_INGAME_ARCHIE_TRADE
+# 1291 "data/maps/LittlerootTown/scripts.pory"
+	release
+# 1292 "data/maps/LittlerootTown/scripts.pory"
+	end
+# 1293 "data/maps/LittlerootTown/scripts.pory"
+ 
+# 1294 "data/maps/LittlerootTown/scripts.pory"
+LittlerootTown_DeclineTrade::
+# 1295 "data/maps/LittlerootTown/scripts.pory"
+	msgbox LittlerootTown_DeclineTrade_Text, MSGBOX_DEFAULT
+# 1296 "data/maps/LittlerootTown/scripts.pory"
+	release
+# 1297 "data/maps/LittlerootTown/scripts.pory"
+	end
+# 1298 "data/maps/LittlerootTown/scripts.pory"
+ 
+# 1299 "data/maps/LittlerootTown/scripts.pory"
+LittlerootTown_EventScript_NotRequestedMon::
+# 1300 "data/maps/LittlerootTown/scripts.pory"
+	bufferspeciesname STR_VAR_1, VAR_0x8009
+# 1301 "data/maps/LittlerootTown/scripts.pory"
+	msgbox LittlerootTown_WrongMon_Text, MSGBOX_DEFAULT
+# 1302 "data/maps/LittlerootTown/scripts.pory"
+	release
+# 1303 "data/maps/LittlerootTown/scripts.pory"
+	end
+# 1304 "data/maps/LittlerootTown/scripts.pory"
+ 
+# 1305 "data/maps/LittlerootTown/scripts.pory"
+LittlerootTown_EventScript_TradeCompleted::
+# 1306 "data/maps/LittlerootTown/scripts.pory"
+	msgbox LittlerootTown_EventScript_TradeCompleted_Text, MSGBOX_DEFAULT
+# 1307 "data/maps/LittlerootTown/scripts.pory"
+	release
+# 1308 "data/maps/LittlerootTown/scripts.pory"
+	end
+# 1309 "data/maps/LittlerootTown/scripts.pory"
+ 
+# 1310 "data/maps/LittlerootTown/scripts.pory"
+LittlerootTown_EventScript_TradeCompleted_Text::
+# 1311 "data/maps/LittlerootTown/scripts.pory"
+	.string "Thanks for trading with me!$"
+# 1312 "data/maps/LittlerootTown/scripts.pory"
+ 
+# 1313 "data/maps/LittlerootTown/scripts.pory"
+LittlerootTown_Text_WillingToTradeIt::
+# 1314 "data/maps/LittlerootTown/scripts.pory"
+	.string "Check out this {STR_VAR_2}!\n"
+# 1315 "data/maps/LittlerootTown/scripts.pory"
+	.string "Oh, I can see that you want it!\p"
+# 1316 "data/maps/LittlerootTown/scripts.pory"
+	.string "I'll tell you what. I might be willing\n"
+# 1317 "data/maps/LittlerootTown/scripts.pory"
+	.string "to trade it for a {STR_VAR_1}.$"
+# 1318 "data/maps/LittlerootTown/scripts.pory"
+ 
+# 1319 "data/maps/LittlerootTown/scripts.pory"
+LittlerootTown_DeclineTrade_Text::
+# 1320 "data/maps/LittlerootTown/scripts.pory"
+	.string "Thats too bad, maybe next time.$"
+# 1321 "data/maps/LittlerootTown/scripts.pory"
+ 
+# 1322 "data/maps/LittlerootTown/scripts.pory"
+LittlerootTown_WrongMon_Text::
+# 1323 "data/maps/LittlerootTown/scripts.pory"
+	.string "I'm sorry but that is not\n"
+# 1324 "data/maps/LittlerootTown/scripts.pory"
+	.string "a {STR_VAR_1}, I cannot trade with you.$"
+# 1325 "data/maps/LittlerootTown/scripts.pory"
+ 
+# 1326 "data/maps/LittlerootTown/scripts.pory"
+LittlerootTown_TradeThanks::
+# 1327 "data/maps/LittlerootTown/scripts.pory"
+	.string "NOW THIS IS REAL POWER!$"
+
 LittlerootTown_EventScript_MemeSign_Text_0:
 # 1026 "data/maps/LittlerootTown/scripts.pory"
 	.string "Emyl go get laid!$"

@@ -48,7 +48,7 @@
 #define RIVAL_STARTER_BATTLE 0x23 // Rival Starter Battle
 #define RAYQUAZA_SPRITE_BATTLE 0x24 // Rayquaza Sprite Battle
 #define FLAG_TM_ICE_BEAM     0x25 // Littleroot Ice Beam
-#define FLAG_UNUSED_0x026    0x26 // Unused Flag
+#define FLAG_INGAME_ARCHIE_TRADE    0x26 // Littleroot Archie Trade
 #define FLAG_UNUSED_0x027    0x27 // Unused Flag
 #define FLAG_UNUSED_0x028    0x28 // Unused Flag
 #define FLAG_UNUSED_0x029    0x29 // Unused Flag
