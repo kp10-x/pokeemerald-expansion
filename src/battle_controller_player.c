@@ -311,7 +311,10 @@ static void HandleInputChooseAction(u32 battler)
         return;
     }
 #endif
-
+    if(JOY_NEW(L_BUTTON)){
+        BtlController_EmitTwoReturnValues(battler, BUFFER_B, B_ACTION_RUN, 0);
+        PlayerBufferExecCompleted(battler);
+    }
     if (JOY_NEW(A_BUTTON))
     {
         PlaySE(SE_SELECT);
